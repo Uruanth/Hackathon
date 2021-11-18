@@ -6,13 +6,20 @@ import { AppComponent } from './app.component';
 import { ProveedoresComponent } from './componentes/formularios/proveedores/proveedores.component';
 import { BeneficiariosComponent } from './componentes/formularios/beneficiarios/beneficiarios.component';
 import { AlimentosComponent } from './componentes/formularios/alimentos/alimentos.component';
+import { FooterComponent } from './componentes-estaticos/footer/footer.component';
+import { NavbarComponent } from './componentes-estaticos/navbar/navbar.component';
+import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProveedoresComponent,
     BeneficiariosComponent,
-    AlimentosComponent
+    AlimentosComponent,
+    FooterComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
