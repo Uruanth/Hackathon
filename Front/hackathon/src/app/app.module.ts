@@ -17,7 +17,10 @@ import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjet
 import { TarjetaBenefiComponent } from './componentes/tarjetas/tarjeta-benefi/tarjeta-benefi.component';
 import { TarjetaTrabComponent } from './componentes/tarjetas/tarjeta-trab/tarjeta-trab.component';
 import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarjeta-cupon.component';
+import { InfoAlimentoComponent } from './componentes/información/info-alimento/info-alimento.component';
 
+
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,9 +38,11 @@ import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarj
     TarjetaProvComponent,
     TarjetaBenefiComponent,
     TarjetaTrabComponent,
-    TarjetaCuponComponent
+    TarjetaCuponComponent,
+    InfoAlimentoComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],

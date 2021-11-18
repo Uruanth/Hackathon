@@ -1,0 +1,9 @@
+img {
+    border-radius: 50%;
+    width: 200px;
+    max-height: 200px;
+    display: inline-block
+}
+p {
+display: block;
+}
