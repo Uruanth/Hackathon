@@ -12,6 +12,7 @@ import { BorrarComponent } from './componentes/formularios/alimentos/borrar/borr
 import { FooterComponent } from './componentes-estaticos/footer/footer.component';
 import { NavbarComponent } from './componentes-estaticos/navbar/navbar.component';
 import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.component';
+import { ActualizarComponent } from './componentes/formularios/alimentos/actualizar/actualizar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.compon
     BorrarComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,
