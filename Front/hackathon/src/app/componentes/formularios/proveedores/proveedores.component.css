@@ -1,0 +1,17 @@
+
+.contenedor {
+    background-color: greenyellow;
+    display: grid;
+    justify-items: center;
+    align-items: center; 
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+  
+  h1 {text-align: center}
+
+.form-select{
+    min-width: 250px;
+}
+
+  
