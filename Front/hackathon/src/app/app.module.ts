@@ -13,6 +13,7 @@ import { FooterComponent } from './componentes-estaticos/footer/footer.component
 import { NavbarComponent } from './componentes-estaticos/navbar/navbar.component';
 import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.component';
 import { ActualizarComponent } from './componentes/formularios/alimentos/actualizar/actualizar.component';
+import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ActualizarComponent } from './componentes/formularios/alimentos/actuali
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    ActualizarComponent
+    ActualizarComponent,
+    TarjetaProvComponent
   ],
   imports: [
     BrowserModule,
