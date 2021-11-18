@@ -22,7 +22,7 @@ import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.compon
     AlimentosComponent,
     AgregarComponent,
     LeerComponent,
-    BorrarComponent
+    BorrarComponent,
     FooterComponent,
     NavbarComponent,
     SidebarComponent
