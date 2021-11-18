@@ -14,6 +14,7 @@ import { NavbarComponent } from './componentes-estaticos/navbar/navbar.component
 import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.component';
 import { ActualizarComponent } from './componentes/formularios/alimentos/actualizar/actualizar.component';
 import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
+import { TarjetaBenefiComponent } from './componentes/tarjetas/tarjeta-benefi/tarjeta-benefi.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjet
     NavbarComponent,
     SidebarComponent,
     ActualizarComponent,
-    TarjetaProvComponent
+    TarjetaProvComponent,
+    TarjetaBenefiComponent
   ],
   imports: [
     BrowserModule,
