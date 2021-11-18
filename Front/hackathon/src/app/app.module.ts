@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { ProveedoresComponent } from './componentes/formularios/proveedores/proveedores.component';
 import { BeneficiariosComponent } from './componentes/formularios/beneficiarios/beneficiarios.component';
 import { AlimentosComponent } from './componentes/formularios/alimentos/alimentos.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './componentes-estaticos/footer/footer.component';
+import { NavbarComponent } from './componentes-estaticos/navbar/navbar.component';
+import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.component';
+
 
 @NgModule({
   declarations: [
@@ -16,8 +17,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ProveedoresComponent,
     BeneficiariosComponent,
     AlimentosComponent,
-    NavbarComponent,
     FooterComponent,
+    NavbarComponent,
     SidebarComponent
   ],
   imports: [
