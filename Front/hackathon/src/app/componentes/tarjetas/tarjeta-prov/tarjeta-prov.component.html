@@ -1,18 +1,20 @@
-<div class="row ">
-    <div class="col-auto">
+<div class="row">
+    <div class="col-auto" *ngFor="let dato of contenido">
         <div class="card m-2" style="width: 18rem;">
             <img src="assets/imagenes/foto-perfil-generica.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+                <h5 class="card-title">{{dato.codigoproducto}}</h5>
+                <p class="card-text">Description</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item">{{dato.nombreproducto}}</li>
+              
             </ul>
+            
         </div>
     </div>
+    <button class="btn btn-primary" type="button" (click)="leerProveedor()">
+
+    </button>
 </div>
