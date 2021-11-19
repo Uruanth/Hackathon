@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +16,10 @@ import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.compon
 import { ActualizarComponent } from './componentes/formularios/alimentos/actualizar/actualizar.component';
 import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
 import { TarjetaBenefiComponent } from './componentes/tarjetas/tarjeta-benefi/tarjeta-benefi.component';
-import { TarjetaTrabComponent } from './componentes/tarjetas/tarjeta-trab/tarjeta-trab.component';
-import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarjeta-cupon.component';
+import { LeerProveedoresComponent } from './componentes/formularios/proveedores/leer-proveedores/leer-proveedores.component';
+import { ActualizarProveedoresComponent } from './componentes/formularios/proveedores/actualizar-proveedores/actualizar-proveedores.component';
+import { AgregarProveedoresComponent } from './componentes/formularios/proveedores/agregar-proveedores/agregar-proveedores.component';
+import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 
 
 @NgModule({
@@ -34,12 +37,17 @@ import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarj
     ActualizarComponent,
     TarjetaProvComponent,
     TarjetaBenefiComponent,
-    TarjetaTrabComponent,
-    TarjetaCuponComponent
+    LeerProveedoresComponent,
+    ActualizarProveedoresComponent,
+    AgregarProveedoresComponent,
+    BorrarProveedoresComponent
+    
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

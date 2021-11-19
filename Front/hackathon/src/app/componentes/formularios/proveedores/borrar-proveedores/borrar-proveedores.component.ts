@@ -1,12 +1,11 @@
-import { Component} from '@angular/core';
-
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-proveedores',
-  templateUrl: './proveedores.component.html',
-  styleUrls: ['./proveedores.component.css']
+  selector: 'app-borrar-proveedores',
+  templateUrl: './borrar-proveedores.component.html',
+  styleUrls: ['./borrar-proveedores.component.css']
 })
-export class ProveedoresComponent {
+export class BorrarProveedoresComponent {
 
   opcionSelect: string = '0';
   mostrar!: number;
