@@ -22,11 +22,16 @@ import { SidebarComponent } from './componentes-estaticos/sidebar/sidebar.compon
 import { ActualizarComponent } from './componentes/formularios/alimentos/actualizar/actualizar.component';
 import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
 import { TarjetaBenefiComponent } from './componentes/tarjetas/tarjeta-benefi/tarjeta-benefi.component';
+import { TarjetaTrabComponent } from './componentes/tarjetas/tarjeta-trab/tarjeta-trab.component';
+import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarjeta-cupon.component';
+import { InfoAlimentoComponent } from './componentes/información/info-alimento/info-alimento.component';
 import { LeerProveedoresComponent } from './componentes/formularios/proveedores/leer-proveedores/leer-proveedores.component';
 import { ActualizarProveedoresComponent } from './componentes/formularios/proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { AgregarProveedoresComponent } from './componentes/formularios/proveedores/agregar-proveedores/agregar-proveedores.component';
 import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 
+
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -43,6 +48,9 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
     ActualizarComponent,
     TarjetaProvComponent,
     TarjetaBenefiComponent,
+    TarjetaTrabComponent,
+    TarjetaCuponComponent,
+    InfoAlimentoComponent,
     LeerProveedoresComponent,
     ActualizarProveedoresComponent,
     AgregarProveedoresComponent,
@@ -51,6 +59,7 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
   ],
 
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

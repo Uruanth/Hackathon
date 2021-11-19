@@ -23,7 +23,7 @@ public class BeneficiariosDao {
 	public BeneficiariosDao() {
 		try {
 			
-			conexion = MongoClients.create("mongodb://localhost");
+			conexion = MongoClients.create("mongodb+srv://hackaton:qTIXhEk91x3DGOV0@cluster0.ya7ac.mongodb.net/test");
 			baseDatos = conexion.getDatabase("proyecto");
 			beneficiarios = baseDatos.getCollection("beneficiarios");
 			
