@@ -26,7 +26,7 @@ public class ProveedoresDao {
 	public ProveedoresDao() {
 		try {
 			
-			conexion = MongoClients.create("mongodb://localhost");
+			conexion = MongoClients.create("mongodb+srv://hackaton:qTIXhEk91x3DGOV0@cluster0.ya7ac.mongodb.net/test");
 			baseDatos = conexion.getDatabase("proyecto");
 			proveedores = baseDatos.getCollection("proveedores");
 			
@@ -50,6 +50,11 @@ public class ProveedoresDao {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param proveedoresDto
+	 * @return
+	 */
 	public boolean crear(ProveedoresDto proveedoresDto) {
 		boolean rta = false;
 		try {
