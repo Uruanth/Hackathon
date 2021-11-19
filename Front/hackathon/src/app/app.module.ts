@@ -30,9 +30,6 @@ import { ActualizarProveedoresComponent } from './componentes/formularios/provee
 import { AgregarProveedoresComponent } from './componentes/formularios/proveedores/agregar-proveedores/agregar-proveedores.component';
 import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 
-
-import { HttpClientModule } from "@angular/common/http";
-
 @NgModule({
   declarations: [
     AppComponent,

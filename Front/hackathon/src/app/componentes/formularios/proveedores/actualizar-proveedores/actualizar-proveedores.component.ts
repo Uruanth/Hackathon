@@ -26,7 +26,7 @@ export class ActualizarProveedoresComponent {
   resultados = Array();
   res: any;
   content: any;
-  urlapi: string = "'http://localhost:8080/api/clientes'";
+  urlapi: string = "http://localhost:8080/api/proveedor/";
   codigoRespuesta!:number;
   res2:any;
   nombre!: string;
@@ -36,7 +36,7 @@ export class ActualizarProveedoresComponent {
   envio!:string;
   direccion!:string;
   correcto!: number;
-  item: string = "619572281e0b36162e21e910";
+  item: string = "1";
   
 
   constructor(private objetoHttp: HttpClient) {}
@@ -91,19 +91,28 @@ export class ActualizarProveedoresComponent {
   /*UPADATE*/
 
   updateDato() {
-    this.objetoHttp.put(`${this.urlapi}/clientes/${this.item}`,
-    {"codigoproducto": 1,
-    "ivacompra": 20,
-    "nitproveedor": 123456,
-    "nombreproducto": "andres",
-    "preciocompra": 1000,
-    "precioventa": 10000});
+    this.res = this.objetoHttp.put(`${this.urlapi}${this.item}`,
+    {"abiertoDesde": "12",
+    "abiertoHasta": "13",
+    "codigo": "1",
+    "disponibilidadEnvio": "si",
+    "nombre": "alejo",
+    "ubicacion": "medallo"});
     this.res.subscribe((datos: any[]) => {
       this.content = datos;
       console.log(this.content);
     });
+    console.log("ok")
   }
-    
+  //DELETE//
+  /*deleteDato() {
+    this.res = this.objetoHttp.delete(`${this.urlapi}${this.item}`);
+    this.res.subscribe((datos: any[]) => {
+      this.content = datos;
+      console.log(this.content);
+    });
+    console.log("ok")
+  }*/
   
   comparar() {
     if (this.codigoRespuesta === 200) {
