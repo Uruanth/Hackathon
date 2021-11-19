@@ -54,11 +54,12 @@ public class ProveedoresDao {
 		boolean rta = false;
 		try {
 			Document documento = new Document("_id", new ObjectId());
-			documento.append("codigoProveedor", proveedoresDto.getCodigoProveedor());
-			documento.append("nombreProveedor", proveedoresDto.getNombreProveedor());
-			documento.append("ubicacionProveedor", proveedoresDto.getUbicacionProveedor());
-			documento.append("horarioProveedor", proveedoresDto.getHorarioProveedor());
-			documento.append("envioProveedor", proveedoresDto.getEnvioProveedor());
+			documento.append("codigoProveedor", proveedoresDto.getCodigoProveedor())
+				.append("nombreProveedor", proveedoresDto.getNombreProveedor())
+				.append("ubicacionProveedor", proveedoresDto.getUbicacionProveedor())
+				.append("envioProveedor", proveedoresDto.getEnvioProveedor())
+				.append("apperturaProveedor", proveedoresDto.getAperturaProveedor())
+				.append("cierreProveedor", proveedoresDto.getCierreProveedor());
 			proveedores.insertOne(documento);
 			System.out.println("Documento creado");
 			this.cerrar();
@@ -78,8 +79,9 @@ public class ProveedoresDao {
 				nuevo.setCodigoProveedor(documento.getString("codigoProveedor"));
 				nuevo.setNombreProveedor(documento.getString("nombreProveedor"));
 				nuevo.setUbicacionProveedor(documento.getString("ubicacionProveedor"));
-				nuevo.setHorarioProveedor(documento.getString("horarioProveedor"));
-				nuevo.setEnvioProveedor(documento.getString("envioProveedor"));
+				nuevo.setEnvioProveedor(documento.getBoolean("envioProveedor"));
+				nuevo.setAperturaProveedor(documento.getString("aperturaProveedor"));
+				nuevo.setCierreProveedor(documento.getString("cierreProveedor"));
 			listado.add(nuevo);
 			}
 			System.out.println("Listado generado");
@@ -101,7 +103,7 @@ public class ProveedoresDao {
 		return rta;
 	}
 
-	public ArrayList<ProveedoresDto> buscarProveedor(String codigoProveedor) {
+	public ArrayList<ProveedoresDto> buscar(String codigoProveedor) {
 		ArrayList<ProveedoresDto> listado = new ArrayList<ProveedoresDto>();
 		try {
 			ArrayList<Document> documentos = proveedores.find(new Document("codigoProveedor", codigoProveedor)).into(new ArrayList<>());
@@ -110,8 +112,10 @@ public class ProveedoresDao {
 				nuevo.setCodigoProveedor(doc.getString("codigoProveedor"));
 				nuevo.setNombreProveedor(doc.getString("nombreProveedor"));
 				nuevo.setUbicacionProveedor(doc.getString("ubicacionProveedor"));
-				nuevo.setHorarioProveedor(doc.getString("horarioProveedor"));
-				nuevo.setEnvioProveedor(doc.getString("envioProveedor"));
+				nuevo.setEnvioProveedor(doc.getBoolean("envioProveedor"));
+				nuevo.setAperturaProveedor(doc.getString("aperturaProveedor"));
+				nuevo.setCierreProveedor(doc.getString("cierreProveedor"));
+				
 				listado.add(nuevo);
 			}
 			System.out.println("Documento encontrado");
@@ -128,12 +132,12 @@ public class ProveedoresDao {
 		try {
 			
 			Document documento = new Document();
-					//("_id", new ObjectId());
 			documento.append("codigoProveedor", proveedoresDto.getCodigoProveedor());
 			documento.append("nombreProveedor", proveedoresDto.getNombreProveedor());
 			documento.append("ubicacionProveedor", proveedoresDto.getUbicacionProveedor());
-			documento.append("horarioProveedor", proveedoresDto.getHorarioProveedor());
 			documento.append("envioProveedor", proveedoresDto.getEnvioProveedor());
+			documento.append("aperturaProveedor", proveedoresDto.getAperturaProveedor());
+			documento.append("cierreProveedor", proveedoresDto.getCierreProveedor());
 			
 			Document filtro = new Document("codigoProveedor", proveedoresDto.getCodigoProveedor());
 			

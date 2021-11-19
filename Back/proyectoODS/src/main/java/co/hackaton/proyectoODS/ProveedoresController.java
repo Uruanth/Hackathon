@@ -47,7 +47,7 @@ public class ProveedoresController {
 	public ArrayList<ProveedoresDto> buscarProveedor(@PathVariable("codigoProveedor")String codigoProveedor) {
 		ArrayList<ProveedoresDto> listado;
 		ProveedoresDao proveedores = new ProveedoresDao();
-		listado = proveedores.buscarProveedor(codigoProveedor);
+		listado = proveedores.buscar(codigoProveedor);
 		return listado;
 	}
 	
