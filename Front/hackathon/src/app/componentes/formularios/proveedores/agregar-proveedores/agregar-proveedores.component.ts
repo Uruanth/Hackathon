@@ -9,6 +9,8 @@ export class AgregarProveedoresComponent {
 
   opcionSelect: string = '0';
   mostrar!: number;
+  opcionSelect2: string = '0';
+  mostrar2!: number;
 
   constructor(){
   }  
@@ -26,5 +28,20 @@ export class AgregarProveedoresComponent {
       console.log(this.mostrar);
       console.log(this.opcionSelect);
   }
+
+  capturar2() {
+
+    if (this.opcionSelect2 == "1"){
+      this.mostrar2 = 1;
+      
+    } else if (this.opcionSelect2 =="2") {
+      this.mostrar2 = 2;
+    } else {
+      this.mostrar2 = 0;
+    }
+    console.log(this.mostrar2);
+    console.log(this.opcionSelect2);
+}
+
 }
 

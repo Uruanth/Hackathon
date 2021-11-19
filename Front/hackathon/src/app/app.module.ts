@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+//import { ToastrModule } from 'ngx-toastr';
+//import { DataTablesModule } from 'angular-datatables';
+//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AppRoutingModule } from "./app-routing.module";
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { ProveedoresComponent } from './componentes/formularios/proveedores/proveedores.component';
 import { BeneficiariosComponent } from './componentes/formularios/beneficiarios/beneficiarios.component';
@@ -48,6 +54,12 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    //NgbModule,
+    RouterModule,
+    AppRoutingModule,
+    //ToastrModule.forRoot(),
+    //DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
