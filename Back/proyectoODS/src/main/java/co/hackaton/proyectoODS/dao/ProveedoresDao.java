@@ -105,19 +105,21 @@ public class ProveedoresDao {
 		ArrayList<ProveedoresDto> listado = new ArrayList<ProveedoresDto>();
 		try {
 			ArrayList<Document> documentos = proveedores.find(new Document("codigoProveedor", codigoProveedor)).into(new ArrayList<>());
-			for(Document documento: documentos) {
+			for(Document doc: documentos) {
 				ProveedoresDto nuevo = new ProveedoresDto();
-				nuevo.setCodigoProveedor(documento.getString("codigoProveedor"));
-				nuevo.setNombreProveedor(documento.getString("nombreProveedor"));
-				nuevo.setUbicacionProveedor(documento.getString("ubicacionProveedor"));
-				nuevo.setHorarioProveedor(documento.getString("horarioProveedor"));
-				nuevo.setEnvioProveedor(documento.getString("envioProveedor"));
-			listado.add(nuevo);
+				nuevo.setCodigoProveedor(doc.getString("codigoProveedor"));
+				nuevo.setNombreProveedor(doc.getString("nombreProveedor"));
+				nuevo.setUbicacionProveedor(doc.getString("ubicacionProveedor"));
+				nuevo.setHorarioProveedor(doc.getString("horarioProveedor"));
+				nuevo.setEnvioProveedor(doc.getString("envioProveedor"));
+				System.out.println("Hola: " + nuevo.getNombreProveedor());
+				listado.add(nuevo);
 			}
 			System.out.println("Documento encontrado");
 		} catch (Exception e) {
 			System.out.println("No se pudo encontrar el documento");
 		}
+		this.cerrar();
 		return listado;
 		
 	}
