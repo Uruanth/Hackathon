@@ -82,7 +82,7 @@ public class BeneficiarioController {
     }
 
 
-    @GetMapping("/productos/{codigo}")
+    @GetMapping("/beneficiario/{codigo}")
     public ResponseEntity<List<Beneficiario>> getProductoByCode(@PathVariable("codigo") String codigo) {
 
         try {
