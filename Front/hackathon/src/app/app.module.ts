@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ import { TarjetaBenefiComponent } from './componentes/tarjetas/tarjeta-benefi/ta
 import { TarjetaTrabComponent } from './componentes/tarjetas/tarjeta-trab/tarjeta-trab.component';
 import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarjeta-cupon.component';
 import { InfoAlimentoComponent } from './componentes/información/info-alimento/info-alimento.component';
+import { LeerProveedoresComponent } from './componentes/formularios/proveedores/leer-proveedores/leer-proveedores.component';
+import { ActualizarProveedoresComponent } from './componentes/formularios/proveedores/actualizar-proveedores/actualizar-proveedores.component';
+import { AgregarProveedoresComponent } from './componentes/formularios/proveedores/agregar-proveedores/agregar-proveedores.component';
+import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 
 
 import { HttpClientModule } from "@angular/common/http";
@@ -39,12 +44,19 @@ import { HttpClientModule } from "@angular/common/http";
     TarjetaBenefiComponent,
     TarjetaTrabComponent,
     TarjetaCuponComponent,
-    InfoAlimentoComponent
+    InfoAlimentoComponent,
+    LeerProveedoresComponent,
+    ActualizarProveedoresComponent,
+    AgregarProveedoresComponent,
+    BorrarProveedoresComponent
+    
   ],
+
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
