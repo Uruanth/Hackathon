@@ -9,6 +9,6 @@ public interface BeneficiarioRepository extends MongoRepository<Beneficiario, St
 
     List<Beneficiario> findByNombre(String nombre);
     List<Beneficiario> findByCodigo(String codigo);
-    List<Beneficiario> deleteByCodigo(String codigo);
+    void deleteByCodigo(String codigo);
 
 }

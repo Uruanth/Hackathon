@@ -10,5 +10,5 @@ public interface PorveedorRepository extends MongoRepository<Proveedor, String> 
 
     List<Proveedor> findByNombre(String nombre);
     List<Proveedor> findByCodigo(String codigo);
-    List<Proveedor> deleteByCodigo(String codigo);
+    void deleteByCodigo(String codigo);
 }
