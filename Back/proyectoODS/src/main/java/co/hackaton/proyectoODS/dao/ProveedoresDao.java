@@ -127,7 +127,8 @@ public class ProveedoresDao {
 		boolean rta = false;
 		try {
 			
-			Document documento = new Document("_id", new ObjectId());
+			Document documento = new Document();
+					//("_id", new ObjectId());
 			documento.append("codigoProveedor", proveedoresDto.getCodigoProveedor());
 			documento.append("nombreProveedor", proveedoresDto.getNombreProveedor());
 			documento.append("ubicacionProveedor", proveedoresDto.getUbicacionProveedor());
