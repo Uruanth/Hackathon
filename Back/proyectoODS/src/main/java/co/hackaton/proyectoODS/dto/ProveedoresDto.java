@@ -1,5 +1,8 @@
 package co.hackaton.proyectoODS.dto;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "proveedores")
 public class ProveedoresDto {
 	
 	private String codigoProveedor;

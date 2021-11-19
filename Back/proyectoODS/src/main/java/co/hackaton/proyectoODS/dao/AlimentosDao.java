@@ -23,7 +23,7 @@ public class AlimentosDao {
 	public AlimentosDao() {
 		try {
 			
-			conexion = MongoClients.create("mongodb://localhost");
+			conexion = MongoClients.create("mongodb+srv://hackaton:qTIXhEk91x3DGOV0@cluster0.ya7ac.mongodb.net/test");
 			baseDatos = conexion.getDatabase("proyecto");
 			alimentos = baseDatos.getCollection("alimentos");
 			
