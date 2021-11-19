@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 //import { ToastrModule } from 'ngx-toastr';
-//import { DataTablesModule } from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 //import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -59,7 +59,7 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
     RouterModule,
     AppRoutingModule,
     //ToastrModule.forRoot(),
-    //DataTablesModule,
+    DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

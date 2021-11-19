@@ -4,7 +4,7 @@
     justify-items: center;
     align-items: center;
     width: 40%;
-    height: 450px;
+    height: 230px;
     margin-top: 10px;
     margin-left: 15px;
   }
@@ -17,5 +17,5 @@
   }
   
   #entrada{
-    min-width: 250px;
+    min-width: 400px;
   }
