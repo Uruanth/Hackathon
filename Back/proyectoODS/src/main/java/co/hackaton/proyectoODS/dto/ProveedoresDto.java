@@ -5,75 +5,72 @@ public class ProveedoresDto {
 	private String codigoProveedor;
 	private String nombreProveedor;
 	private String ubicacionProveedor;
-	private String horarioProveedor;
-	private String envioProveedor;
+	private Boolean envioProveedor;
+	private String aperturaProveedor;
+	private String cierreProveedor;
 	
-	
+	public ProveedoresDto() {
+		
+	}
+
+	public ProveedoresDto(String codigoProveedor, String nombreProveedor, String ubicacionProveedor,
+			Boolean envioProveedor, String aperturaProveedor, String cierreProveedor) {
+		
+		this.codigoProveedor = codigoProveedor;
+		this.nombreProveedor = nombreProveedor;
+		this.ubicacionProveedor = ubicacionProveedor;
+		this.envioProveedor = envioProveedor;
+		this.aperturaProveedor = aperturaProveedor;
+		this.cierreProveedor = cierreProveedor;
+	}
+
 	public String getCodigoProveedor() {
 		return codigoProveedor;
 	}
-
 
 	public void setCodigoProveedor(String codigoProveedor) {
 		this.codigoProveedor = codigoProveedor;
 	}
 
-
 	public String getNombreProveedor() {
 		return nombreProveedor;
 	}
-
 
 	public void setNombreProveedor(String nombreProveedor) {
 		this.nombreProveedor = nombreProveedor;
 	}
 
-
 	public String getUbicacionProveedor() {
 		return ubicacionProveedor;
 	}
-
 
 	public void setUbicacionProveedor(String ubicacionProveedor) {
 		this.ubicacionProveedor = ubicacionProveedor;
 	}
 
-
-	public String getHorarioProveedor() {
-		return horarioProveedor;
-	}
-
-
-	public void setHorarioProveedor(String horarioProveedor) {
-		this.horarioProveedor = horarioProveedor;
-	}
-
-
-	public String getEnvioProveedor() {
+	public Boolean getEnvioProveedor() {
 		return envioProveedor;
 	}
 
-
-	public void setEnvioProveedor(String envioProveedor) {
+	public void setEnvioProveedor(Boolean envioProveedor) {
 		this.envioProveedor = envioProveedor;
 	}
 
-
-	public ProveedoresDto() {
-		
+	public String getAperturaProveedor() {
+		return aperturaProveedor;
 	}
 
-
-	public ProveedoresDto(String codigoProveedor, String nombreProveedor, String ubicacionProveedor,
-			String horarioProveedor, String envioProveedor) {
-		this.codigoProveedor = codigoProveedor;
-		this.nombreProveedor = nombreProveedor;
-		this.ubicacionProveedor = ubicacionProveedor;
-		this.horarioProveedor = horarioProveedor;
-		this.envioProveedor = envioProveedor;
+	public void setAperturaProveedor(String aperturaProveedor) {
+		this.aperturaProveedor = aperturaProveedor;
 	}
-	
-	
+
+	public String getCierreProveedor() {
+		return cierreProveedor;
+	}
+
+	public void setCierreProveedor(String cierreProveedor) {
+		this.cierreProveedor = cierreProveedor;
+	}
 	
 
 }

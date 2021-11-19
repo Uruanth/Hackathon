@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +19,7 @@ import co.hackaton.proyectoODS.dto.ProveedoresDto;
 @RestController
 public class ProveedoresController {
 	
-	@RequestMapping("/crearProveedor")
+	@PostMapping("/crearProveedor")
 	public boolean crearProveedor(@RequestBody ProveedoresDto proveedoresDto) {
 		boolean estado = false;
 		ProveedoresDao proveedores = new ProveedoresDao();
@@ -24,7 +27,7 @@ public class ProveedoresController {
 		return estado;
 	}
 	
-	@RequestMapping("/listarProveedores")
+	@GetMapping("/listarProveedores")
 	public ArrayList<ProveedoresDto> listarProveedores() {
 		ArrayList<ProveedoresDto> listado;
 		ProveedoresDao proveedores = new ProveedoresDao();
@@ -40,15 +43,15 @@ public class ProveedoresController {
 		return rta;
 	}
 	
-	@RequestMapping("/buscarProveedor/{codigoProveedor}")
-	public ArrayList<ProveedoresDto> buscarProveedor(@PathVariable("codigoProveedor") String codigoProveedor) {
+	@GetMapping("/buscarProveedor/{codigoProveedor}")
+	public ArrayList<ProveedoresDto> buscarProveedor(@PathVariable("codigoProveedor")String codigoProveedor) {
 		ArrayList<ProveedoresDto> listado;
 		ProveedoresDao proveedores = new ProveedoresDao();
-		listado = proveedores.buscarProveedor(codigoProveedor);
+		listado = proveedores.buscar(codigoProveedor);
 		return listado;
 	}
 	
-	@RequestMapping("/actualizarProveedor")
+	@PutMapping("/actualizarProveedor")
 	public boolean actualizarProveedor(@RequestBody ProveedoresDto proveedoresDto) {
 		boolean estado = false;
 		ProveedoresDao proveedores = new ProveedoresDao();
