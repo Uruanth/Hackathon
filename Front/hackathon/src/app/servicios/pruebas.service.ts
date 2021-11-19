@@ -11,9 +11,9 @@ export class PruebasService {
 
   }
 
-  getNew() {
+  getNew(url: string) {
 
-    this.http.get("https://www.google.com/maps/search/?api=1&query=Bogota+centro");
+    this.http.get(url);
       
 
   }

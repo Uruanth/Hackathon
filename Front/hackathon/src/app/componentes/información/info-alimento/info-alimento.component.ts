@@ -12,7 +12,7 @@ export class InfoAlimentoComponent implements OnInit {
 
   constructor(private ser: PruebasService) { 
 
-    this.ser.getNew();
+   
 
   }
 
