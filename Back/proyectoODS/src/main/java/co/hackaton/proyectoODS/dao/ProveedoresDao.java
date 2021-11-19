@@ -112,7 +112,6 @@ public class ProveedoresDao {
 				nuevo.setUbicacionProveedor(doc.getString("ubicacionProveedor"));
 				nuevo.setHorarioProveedor(doc.getString("horarioProveedor"));
 				nuevo.setEnvioProveedor(doc.getString("envioProveedor"));
-				System.out.println("Hola: " + nuevo.getNombreProveedor());
 				listado.add(nuevo);
 			}
 			System.out.println("Documento encontrado");
@@ -127,6 +126,7 @@ public class ProveedoresDao {
 	public boolean actualizar(ProveedoresDto proveedoresDto) {
 		boolean rta = false;
 		try {
+			
 			Document documento = new Document("_id", new ObjectId());
 			documento.append("codigoProveedor", proveedoresDto.getCodigoProveedor());
 			documento.append("nombreProveedor", proveedoresDto.getNombreProveedor());
