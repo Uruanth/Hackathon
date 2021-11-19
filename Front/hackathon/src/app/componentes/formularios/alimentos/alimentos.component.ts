@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlimentosComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+    
   }
+
+
 
 }

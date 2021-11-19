@@ -10,11 +10,8 @@ export class PruebasService {
     console.log("servicio")
 
   }
-
-  getNew(url: string) {
-
-    this.http.get(url);
-      
-
-  }
+probando(){
+  console.log("asd");
+}
+  
 }
