@@ -1,12 +1,11 @@
-import { Component} from '@angular/core';
-
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-proveedores',
-  templateUrl: './proveedores.component.html',
-  styleUrls: ['./proveedores.component.css']
+  selector: 'app-actualizar-proveedores',
+  templateUrl: './actualizar-proveedores.component.html',
+  styleUrls: ['./actualizar-proveedores.component.css']
 })
-export class ProveedoresComponent {
+export class ActualizarProveedoresComponent {
 
   opcionSelect: string = '0';
   mostrar!: number;
@@ -28,3 +27,4 @@ export class ProveedoresComponent {
       console.log(this.opcionSelect);
   }
 }
+
