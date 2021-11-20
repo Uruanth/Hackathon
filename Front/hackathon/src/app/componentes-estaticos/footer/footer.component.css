@@ -1,0 +1,10 @@
+.btn{
+    background-color: blue;
+}
+
+
+@media (max-width: 800px) {
+    .footer {
+      display: none;
+    }
+  }

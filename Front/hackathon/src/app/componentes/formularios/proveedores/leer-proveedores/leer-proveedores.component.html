@@ -1,0 +1,15 @@
+<div class="container position-absolute top-50 start-50 translate-middle">
+    <table class="compact nowrap table table-dark table-hover table-responsive-sm
+    table-responsive-lg table-responsive-xxl" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <tbody>
+      <tr *ngFor="let dato of contenido" class="">
+        <td>{{dato.codigoproducto}}</td>
+        <td>{{dato.nombreproducto}}</td>
+        <td>{{dato.nitproveedor}}</td>
+        <td>{{dato.preciocompra}}</td>
+        <td>{{dato.ivacompra}}</td>
+        <td>{{dato.precioventa}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
