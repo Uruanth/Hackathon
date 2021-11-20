@@ -34,7 +34,11 @@ import { InfoBeneficiariosComponent } from './componentes/información/info-bene
 import { InfoDonacionComponent } from './componentes/información/info-donacion/info-donacion.component';
 import { LandingComponent } from './componentes/landing/landing.component';
 import { BuscarComponent } from './componentes/buscar/buscar.component';
-import { LoadingComponent } from './componentes/loading/loading.component';
+import { InfoCuponesComponent } from './componentes/información/info-cupones/info-cupones.component';
+import { InfoTrabajosComponent } from './componentes/información/info-trabajos/info-trabajos.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -63,7 +67,9 @@ import { LoadingComponent } from './componentes/loading/loading.component';
     InfoDonacionComponent,
     LandingComponent,
     BuscarComponent,
-    LoadingComponent
+    InfoCuponesComponent,
+    InfoTrabajosComponent
+
 
 
   ],
