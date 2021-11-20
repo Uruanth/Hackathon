@@ -67,8 +67,11 @@ import { LoadingComponent } from './componentes/loading/loading.component';
     LoadingComponent
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of d68dbc0 (Merge branch 'main' of https://github.com/Uruanth/Hackathon)
 =======
 >>>>>>> parent of d68dbc0 (Merge branch 'main' of https://github.com/Uruanth/Hackathon)
   ],
