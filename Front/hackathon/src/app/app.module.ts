@@ -36,6 +36,7 @@ import { LandingComponent } from './componentes/landing/landing.component';
 import { BuscarComponent } from './componentes/buscar/buscar.component';
 import { InfoCuponesComponent } from './componentes/información/info-cupones/info-cupones.component';
 import { InfoTrabajosComponent } from './componentes/información/info-trabajos/info-trabajos.component';
+import { LoadingComponent } from './componentes/loading/loading.component';
 
 
 
@@ -68,7 +69,8 @@ import { InfoTrabajosComponent } from './componentes/información/info-trabajos/
     LandingComponent,
     BuscarComponent,
     InfoCuponesComponent,
-    InfoTrabajosComponent
+    InfoTrabajosComponent,
+    LoadingComponent
 
 
 

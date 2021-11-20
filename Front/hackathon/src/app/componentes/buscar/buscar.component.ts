@@ -128,7 +128,7 @@ export class BuscarComponent implements OnInit {
     let a = this.lista.filter((el) => {
       if (bb != "") {
         if (el.nombre.includes(bb)) {
-          // console.log(el);
+          console.log(el);
           return el;
         }
       }
