@@ -1,7 +1,7 @@
 package edu.unelbosque.hackathon.Controller;
 
 import edu.unelbosque.hackathon.Models.Proveedor;
-import edu.unelbosque.hackathon.Repository.PorveedorRepository;
+import edu.unelbosque.hackathon.Repository.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,9 @@ import java.util.Optional;
 public class ProveedorController {
     
     @Autowired
-    PorveedorRepository proveedorRepository;
+    ProveedorRepository proveedorRepository;
 
-    @GetMapping("/proveedors")
+    @GetMapping("/proveedores")
     public ResponseEntity<List<Proveedor>> getAllProveedors(@RequestParam(required = false) String nombre) {
         try {
             List<Proveedor> proveedores = new ArrayList<>();
@@ -91,6 +91,25 @@ public class ProveedorController {
         }
 
     }
+    
+    @GetMapping("/proveedor/{nombre}")
+    public ResponseEntity<List<Proveedor>> getProductoByNombre(@PathVariable("nombre") String nombre) {
+
+        try {
+            List<Proveedor> proveedor = proveedorRepository.findByCodigo(nombre);
+
+            if (proveedor.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+            }
+
+            return new ResponseEntity<>(proveedor, HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 
     @PutMapping("/proveedor/{codigo}")
@@ -121,12 +140,52 @@ public class ProveedorController {
 
     }
 
+    @PutMapping("/proveedor/{nombre}")
+    public ResponseEntity<Proveedor> updateProveedorNombre(@PathVariable("nombre") String nombre, @RequestBody Proveedor proveedor) {
+
+        List<Proveedor> proveedorList = proveedorRepository.findByNombre(nombre);
+
+        Proveedor proveedorD = proveedorList.get(0);
+
+        Optional<Proveedor> proveedorData = Optional.ofNullable(proveedorD);
+
+        if (proveedorData.isPresent()) {
+
+            Proveedor proAux = proveedorData.get();
+
+            proAux.setNombre(proveedor.getNombre());
+            proAux.setCodigo(proveedor.getCodigo());
+            proAux.setUbicacion(proveedor.getUbicacion());
+            proAux.setDisponibilidadEnvio(proveedor.getDisponibilidadEnvio());
+            proAux.setAbiertoDesde(proveedor.getAbiertoDesde());
+            proAux.setAbiertoHasta(proveedor.getAbiertoHasta());
+
+
+            return new ResponseEntity<>(proveedorRepository.save(proAux), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
 
     @DeleteMapping("/proveedor/{codigo}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("codigo") String codigo) {
         try {
 
             proveedorRepository.deleteByCodigo(codigo);
+            return new ResponseEntity<>(HttpStatus.OK);
+
+        } catch (Exception e) {
+
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @DeleteMapping("/proveedor/{nombre}")
+    public ResponseEntity<HttpStatus> deleteProductNombre(@PathVariable("nombre") String nombre) {
+        try {
+
+            proveedorRepository.deleteByCodigo(nombre);
             return new ResponseEntity<>(HttpStatus.OK);
 
         } catch (Exception e) {

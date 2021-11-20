@@ -22,22 +22,22 @@ export class ActualizarProveedoresComponent {
   opcionSelect: string = '0';
   mostrar!: number;
   opcionSelect2: string = '0';
-  mostrar2!: number; 
   resultados = Array();
   res: any;
   content: any;
   urlapi: string = "http://localhost:8080/api/proveedor/";
+  urlapi2: string = "http://localhost:8080/api/proveedores";
   codigoRespuesta!:number;
   res2:any;
   nombre!: string;
   horario!: string;
   desde!: string;
   hasta!: string;
-  envio!:string;
+  envio: string ="";
   direccion!:string;
   correcto!: number;
-  item: string = "1";
-  
+  codigo!: string;
+  item!: string;  
 
   constructor(private objetoHttp: HttpClient) {}
 
@@ -58,19 +58,15 @@ export class ActualizarProveedoresComponent {
   capturar2() {
 
     if (this.opcionSelect2 == "1"){
-      this.mostrar2 = 1;
+      this.envio = "Si";
       
     } else if (this.opcionSelect2 =="2") {
-      this.mostrar2 = 2;
+      this.envio = "No";
     } else {
-      this.mostrar2 = 0;
+      this.envio = "";
     }
-    console.log(this.mostrar2);
+    console.log(this.envio);
     console.log(this.opcionSelect2);
-  }
-
-  buscar(){
-
   }
 
   //FUNCIÓN DE CONTROL DE ERRORES
@@ -88,16 +84,26 @@ export class ActualizarProveedoresComponent {
     return throwError(errorMessage);
   }
 
+  buscar(){
+    this.res2 = this.objetoHttp.get(`${this.urlapi2}${this.item}`);
+    //subscribe el  archivo Json y lo convierte
+    this.res.subscribe((datos: any[]) => {
+      this.content = datos;
+      console.log(this.content);
+    });
+
+  }
+
   /*UPADATE*/
 
   updateDato() {
     this.res = this.objetoHttp.put(`${this.urlapi}${this.item}`,
-    {"abiertoDesde": "12",
-    "abiertoHasta": "13",
-    "codigo": "1",
-    "disponibilidadEnvio": "si",
-    "nombre": "alejo",
-    "ubicacion": "medallo"});
+    {"abiertoDesde": this.desde,
+    "abiertoHasta": this.hasta,
+    "codigo": this.codigo,
+    "disponibilidadEnvio": this.envio,
+    "nombre": this.nombre,
+    "ubicacion": this.direccion});
     this.res.subscribe((datos: any[]) => {
       this.content = datos;
       console.log(this.content);
