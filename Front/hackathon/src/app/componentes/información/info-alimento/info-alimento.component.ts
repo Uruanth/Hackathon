@@ -1,6 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PruebasService } from 'src/app/servicios/pruebas.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-info-alimento',
@@ -10,9 +9,11 @@ import { PruebasService } from 'src/app/servicios/pruebas.service';
 export class InfoAlimentoComponent implements OnInit {
 
 
-  constructor(private ser: PruebasService) { 
+  constructor(private cabecera: ActivatedRoute) { 
 
-   
+   this.cabecera.params.subscribe(params => {
+     console.log(params['codigo']);
+   })
 
   }
 

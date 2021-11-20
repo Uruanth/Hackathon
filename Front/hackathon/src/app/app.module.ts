@@ -31,6 +31,7 @@ import { AgregarProveedoresComponent } from './componentes/formularios/proveedor
 import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 import { LandingComponent } from './componentes/landing/landing.component';
 import { BuscarComponent } from './componentes/buscar/buscar.component';
+import { LoadingComponent } from './componentes/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BuscarComponent } from './componentes/buscar/buscar.component';
     AgregarProveedoresComponent,
     BorrarProveedoresComponent,
     LandingComponent,
-    BuscarComponent
+    BuscarComponent,
+    LoadingComponent
 
   ],
 

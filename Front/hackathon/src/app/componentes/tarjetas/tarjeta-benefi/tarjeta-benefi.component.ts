@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarjeta-benefi',
@@ -114,7 +115,7 @@ export class TarjetaBenefiComponent implements OnInit {
   @Input() benefi: any[] = [];
 
   lista2!: Array<any>;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -131,5 +132,11 @@ export class TarjetaBenefiComponent implements OnInit {
     // console.log(a2);
 
   }
+
+
+verInfo(a:any){
+  console.log(a.codigo);
+  this.router.navigate(['alimentos', a.codigo])
+}
 
 }
