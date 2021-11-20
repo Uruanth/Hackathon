@@ -23,6 +23,8 @@ export class BorrarProveedoresComponent {
   mostrar!: number;
   opcionSelect2: string = '0';
   mostrar2!: number; 
+  buscado!:string;
+
   resultados = Array();
   res: any;
   content: any;
