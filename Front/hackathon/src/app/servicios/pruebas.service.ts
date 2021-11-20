@@ -70,35 +70,35 @@ export class PruebasService {
   //----
 
 
-  // otroMetodo(): Promise<any[]> {
-  //   return new Promise((resolve, reject) => {
-  //     console.log("entro al metodo");
-  //     this.http.get(
-  //       this.baseApiUrl2,
-  //       { observe: 'response' }).subscribe(
-  //         (response: any) => {
-  //           let resaux = [];
-  //           resaux[0] = response.status;
-  //           this.resultados.push(resaux);
-  //           console.log("response");
-  //           this.resultados2.push(response.body);
-  //           // for (let n of response.body) {
-  //           //   console.log("responsen");
-  //           //   this.resultados2.push(n);
+  otroMetodo(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      console.log("entro al metodo");
+      this.http.get(
+        this.baseApiUrl2,
+        { observe: 'response' }).subscribe(
+          (response: any) => {
+            let resaux = [];
+            resaux[0] = response.status;
+            this.resultados.push(resaux);
+            console.log("response");
+            this.resultados2.push(response.body);
+            // for (let n of response.body) {
+            //   console.log("responsen");
+            //   this.resultados2.push(n);
 
-  //           // }
-  //           console.log(response.body);
-  //         }
-  //       );
-  //       resolve(this.resultados2);
+            // }
+            console.log(response.body);
+          }
+        );
+        resolve(this.resultados2);
         
-  //     });
-  // }
+      });
+  }
 
   
-  otroMetodo() {
-    return this.http.get(this.baseApiUrl2, { observe: 'response' });
-  }
+  // otroMetodo() {
+  //   return this.http.get(this.baseApiUrl2);
+  // }
 
 }
 
