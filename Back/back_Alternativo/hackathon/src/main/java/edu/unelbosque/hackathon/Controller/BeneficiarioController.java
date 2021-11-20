@@ -21,12 +21,10 @@ public class BeneficiarioController {
     BeneficiarioRepository beneficiarioRepository;
 
     /**
-     * Obtener la lista de beneficiarios
-     *
+     * This method access to all the beneficiaries in the database 
      * @param nombre
-     * @return List<Beneficiarios>
+     * @return HTTP response
      */
-
     @GetMapping("/beneficiarios")
     public ResponseEntity<List<Beneficiario>> getAllBeneficiarios(@RequestParam(required = false) String nombre) {
         try {
@@ -52,7 +50,11 @@ public class BeneficiarioController {
         }
     }
 
-
+    /**
+     * This method creates a beneficiary in the database
+     * @param beneficiario
+     * @return HTTP response
+     */
     @PostMapping("/beneficiario")
     public ResponseEntity<Beneficiario> crearBeneficiario(@RequestBody Beneficiario beneficiario) {
 
@@ -81,9 +83,13 @@ public class BeneficiarioController {
 
     }
 
-
+    /**
+     * This method find a beneficiary by code in the database
+     * @param codigo
+     * @return HTTP response
+     */
     @GetMapping("/beneficiario/{codigo}")
-    public ResponseEntity<List<Beneficiario>> getProductoByCode(@PathVariable("codigo") String codigo) {
+    public ResponseEntity<List<Beneficiario>> getBeneficiarioByCode(@PathVariable("codigo") String codigo) {
 
         try {
             List<Beneficiario> beneficiario = beneficiarioRepository.findByCodigo(codigo);
@@ -101,27 +107,13 @@ public class BeneficiarioController {
         }
 
     }
-    
-    @GetMapping("/beneficiario/{nombre}")
-    public ResponseEntity<List<Beneficiario>> getProductoByNombre(@PathVariable("nombre") String nombre) {
 
-        try {
-            List<Beneficiario> beneficiario = beneficiarioRepository.findByCodigo(nombre);
-
-            if (beneficiario.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
-            }
-
-            return new ResponseEntity<>(beneficiario, HttpStatus.OK);
-
-        } catch (Exception e) {
-            System.out.println(e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
-    }
-
+    /**
+     * This method update the beneficiary by code in the database
+     * @param codigo
+     * @param beneficiario
+     * @return HTTP response
+     */
     @PutMapping("/beneficiario/{codigo}")
     public ResponseEntity<Beneficiario> updateBeneficiario(@PathVariable("codigo") String codigo, @RequestBody Beneficiario beneficiario) {
 
@@ -149,35 +141,13 @@ public class BeneficiarioController {
 
     }
 
-    @PutMapping("/beneficiario/{nombre}")
-    public ResponseEntity<Beneficiario> updateBeneficiarioNombre(@PathVariable("nombre") String nombre, @RequestBody Beneficiario beneficiario) {
-
-        List<Beneficiario> beneficiarioList = beneficiarioRepository.findByCodigo(nombre);
-
-        Beneficiario beneficiarioD = beneficiarioList.get(0);
-
-        Optional<Beneficiario> beneficiarioData = Optional.ofNullable(beneficiarioD);
-
-        if (beneficiarioData.isPresent()) {
-
-            Beneficiario benAux=beneficiarioData.get();
-
-            benAux.setNombre(beneficiario.getNombre());
-            benAux.setCodigo(beneficiario.getCodigo());
-            benAux.setPersonasACargo(beneficiario.getPersonasACargo());
-            benAux.setEdades(beneficiario.getEdades());
-            benAux.setRequisitosNutricionales(beneficiario.getRequisitosNutricionales());
-            benAux.setMotivoSolicitud(beneficiario.getMotivoSolicitud());
-            benAux.setUsoEstimado(beneficiario.getUsoEstimado());
-            return new ResponseEntity<>(beneficiarioRepository.save(benAux), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-    }
-    
+    /**
+     * This method delete a beneficiary by code in the database
+     * @param codigo
+     * @return HTTP response
+     */
     @DeleteMapping("/beneficiario/{codigo}")
-    public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("codigo") String codigo) {
+    public ResponseEntity<HttpStatus> deleteBeneficiario(@PathVariable("codigo") String codigo) {
         try {
 
             beneficiarioRepository.deleteByCodigo(codigo);
@@ -188,22 +158,13 @@ public class BeneficiarioController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
-    @DeleteMapping("/beneficiario/{nombre}")
-    public ResponseEntity<HttpStatus> deleteProducto(@PathVariable("nombre") String nombre) {
-        try {
 
-            beneficiarioRepository.deleteByCodigo(nombre);
-            return new ResponseEntity<>(HttpStatus.OK);
-
-        } catch (Exception e) {
-
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
+    /**
+     * This method delete all the beneficiaries in the database
+     * @return HTTP response
+     */
     @DeleteMapping("/beneficiario")
-    public ResponseEntity<HttpStatus> deleteAllProduct() {
+    public ResponseEntity<HttpStatus> deleteAllBeneficiario() {
         try {
             beneficiarioRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.OK);
