@@ -6,10 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "trabajo")
 public class Trabajo {
 	
-	 @Id
+	 	@Id
 	    private String id;
 
-	    //Nombre , codigo, ubicacion, disponibilidad de envío, abierto desde, abierto hasta,
 	    private String categoria;
 	    private String requisito;
 	    private String ubicacion;
@@ -17,7 +16,6 @@ public class Trabajo {
 	    private String bonificacion;
 	    
 	    public Trabajo() {
-			// TODO Auto-generated constructor stub
 		}
 
 		/**
