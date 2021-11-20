@@ -1,13 +1,13 @@
 package edu.unelbosque.hackathon.Repository;
 
-import edu.unelbosque.hackathon.Models.Trabajo;
-
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface TrabajoRepository extends MongoRepository<Trabajo, String> {
+import edu.unelbosque.hackathon.Models.Cupon;
+
+public interface CuponRepository extends MongoRepository<Cupon, String> {
 	
-	List<Trabajo> findByCategoria(String categoria);
+	List<Cupon> findByCategoria(String categoria);
     void deleteByCategoria(String categoria);
 }

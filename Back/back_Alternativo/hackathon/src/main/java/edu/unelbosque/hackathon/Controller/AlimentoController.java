@@ -1,7 +1,6 @@
 package edu.unelbosque.hackathon.Controller;
 
 import edu.unelbosque.hackathon.Models.Alimento;
-import edu.unelbosque.hackathon.Models.Proveedor;
 import edu.unelbosque.hackathon.Repository.AlimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ public class AlimentoController {
 
 
     @GetMapping("/alimentos")
-    public ResponseEntity<List<Alimento>> getAllProveedors(@RequestParam(required = false) String nombre) {
+    public ResponseEntity<List<Alimento>> getAllAlimentos(@RequestParam(required = false) String nombre) {
         try {
             List<Alimento> alimentos = new ArrayList<>();
             if (nombre == null) {
@@ -91,12 +90,57 @@ public class AlimentoController {
         }
 
     }
+    
+    @GetMapping("/alimento/{nombre}")
+    public ResponseEntity<List<Alimento>> getAlimentoByNombre(@PathVariable("nombre") String nombre) {
+
+        try {
+            List<Alimento> alimento = alimentoRepository.findByNombre(nombre);
+
+            if (alimento.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+            }
+
+            return new ResponseEntity<>(alimento, HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 
     @PutMapping("/alimento/{codigo}")
     public ResponseEntity<Alimento> updateAlimento(@PathVariable("codigo") String codigo, @RequestBody Alimento alimento) {
 
         List<Alimento> alimentoList = alimentoRepository.findByCodigo(codigo);
+
+        Alimento alimentoD = alimentoList.get(0);
+
+        Optional<Alimento> alimentoData = Optional.ofNullable(alimentoD);
+
+        if (alimentoData.isPresent()) {
+
+            Alimento aliAux = alimentoData.get();
+
+            aliAux.setCodigo(alimento.getCodigo());
+            aliAux.setNombre(alimento.getNombre());
+            aliAux.setFechaVencimiento(alimento.getFechaVencimiento());
+            aliAux.setTipo(alimento.getTipo());
+
+
+            return new ResponseEntity<>(alimentoRepository.save(aliAux), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+    
+    @PutMapping("/alimento/{nombre}")
+    public ResponseEntity<Alimento> updateAlimentoNombre(@PathVariable("nombre") String nombre, @RequestBody Alimento alimento) {
+
+        List<Alimento> alimentoList = alimentoRepository.findByNombre(nombre);
 
         Alimento alimentoD = alimentoList.get(0);
 
@@ -125,6 +169,19 @@ public class AlimentoController {
         try {
 
             alimentoRepository.deleteByCodigo(codigo);
+            return new ResponseEntity<>(HttpStatus.OK);
+
+        } catch (Exception e) {
+
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @DeleteMapping("/alimento/{nombre}")
+    public ResponseEntity<HttpStatus> deleteAlimentoNombre(@PathVariable("nombre") String nombre) {
+        try {
+
+            alimentoRepository.deleteByCodigo(nombre);
             return new ResponseEntity<>(HttpStatus.OK);
 
         } catch (Exception e) {
