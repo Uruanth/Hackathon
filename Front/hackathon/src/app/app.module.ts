@@ -29,6 +29,8 @@ import { LeerProveedoresComponent } from './componentes/formularios/proveedores/
 import { ActualizarProveedoresComponent } from './componentes/formularios/proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { AgregarProveedoresComponent } from './componentes/formularios/proveedores/agregar-proveedores/agregar-proveedores.component';
 import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
+import { LandingComponent } from './componentes/landing/landing.component';
+import { BuscarComponent } from './componentes/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +53,10 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
     LeerProveedoresComponent,
     ActualizarProveedoresComponent,
     AgregarProveedoresComponent,
-    BorrarProveedoresComponent
-    
+    BorrarProveedoresComponent,
+    LandingComponent,
+    BuscarComponent
+
   ],
 
   imports: [

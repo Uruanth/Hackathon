@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class LeerService {
 
+  sies!: any[];
+
   content!: any[];
   constructor(private http: HttpClient) { }
 
@@ -22,18 +24,42 @@ export class LeerService {
     return content;
   }
 
-  async leerTodos(urlapi: string): Promise<any[]> {
+  leerTodos(urlapi: string): any[] {
     let res: any;
-    var num!: number;
-    res = await this.http.get(`${urlapi}`);
-    res.subscribe( (datos: any[]) =>  {
-      this.content = datos;
-      console.log(this.content);
-      console.log(datos.length);
-      num = datos.length;
+    var num!: any;
+    res = this.http.get(`${urlapi}`, { observe: 'response' })
+      .subscribe((response: any) => {
+        num = response.status
+        console.log(num);
+        console.log(response.body);
+        this.sies.push(response.body);
+        console.log("subscribe")
+      }
+      );
+
+
+    var ff = new Promise<any[]>((resolve, reject) => {
+
+      this.http.get(`${urlapi}`, { observe: 'response' })
+        .subscribe((response: any) => {
+          num = response.status
+          console.log(num);
+          console.log(response.body);
+          this.sies.push(response.body);
+          console.log("subscribe")
+        }
+        
+        );
+        
+        
+
+
     });
-    console.log(num+ " es el numero");
-    return res;
+
+
+    console.log(this.sies + " es el sies");
+    console.log(num + " es el numero");
+    return this.sies;
   }
 
 

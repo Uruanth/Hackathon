@@ -1,0 +1,14 @@
+<div class="row">
+
+    <div class="col">
+        <input type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar" #termino>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-auto" *ngFor="let a of listaResult">
+        <p>{{ a.codigo }} </p>
+    </div>
+
+    <app-tarjeta-benefi [benefi] = "listaResult"></app-tarjeta-benefi>
+</div>
