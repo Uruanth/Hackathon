@@ -21,9 +21,13 @@ public class AlimentoController {
     @Autowired
     AlimentoRepository alimentoRepository;
 
-
+    /**
+     * This method access to all the food in the database 
+     * @param nombre
+     * @return HTTP response
+     */
     @GetMapping("/alimentos")
-    public ResponseEntity<List<Alimento>> getAllProveedors(@RequestParam(required = false) String nombre) {
+    public ResponseEntity<List<Alimento>> getAllAlimento(@RequestParam(required = false) String nombre) {
         try {
             List<Alimento> alimentos = new ArrayList<>();
             if (nombre == null) {
@@ -45,9 +49,13 @@ public class AlimentoController {
         }
     }
 
-
+    /**
+     * This method creates a food in the database
+     * @param alimento
+     * @return HTTP response
+     */
     @PostMapping("/alimento")
-    public ResponseEntity<Alimento> crearProveedor(@RequestBody Alimento alimento) {
+    public ResponseEntity<Alimento> crearAlimento(@RequestBody Alimento alimento) {
 
         try {
 
@@ -72,7 +80,11 @@ public class AlimentoController {
 
     }
 
-
+    /**
+     * This method find a food in the database by code
+     * @param codigo
+     * @return HTTP response
+     */
     @GetMapping("/alimento/{codigo}")
     public ResponseEntity<List<Alimento>> getAlimentoByCode(@PathVariable("codigo") String codigo) {
 
@@ -92,7 +104,12 @@ public class AlimentoController {
 
     }
 
-
+    /**
+     * This method update the food in the database by code
+     * @param codigo
+     * @param alimento
+     * @return HTTP response
+     */
     @PutMapping("/alimento/{codigo}")
     public ResponseEntity<Alimento> updateAlimento(@PathVariable("codigo") String codigo, @RequestBody Alimento alimento) {
 
@@ -119,7 +136,11 @@ public class AlimentoController {
 
     }
 
-
+    /**
+     * This method delete food by code in the database
+     * @param codigo
+     * @return HTTP response
+     */
     @DeleteMapping("/alimento/{codigo}")
     public ResponseEntity<HttpStatus> deleteAlimento(@PathVariable("codigo") String codigo) {
         try {
@@ -132,7 +153,11 @@ public class AlimentoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
+    /**
+     * This method delete all the food in the database
+     * @return HTTP response
+     */
     @DeleteMapping("/alimento")
     public ResponseEntity<HttpStatus> deleteAllAlimentos() {
         try {

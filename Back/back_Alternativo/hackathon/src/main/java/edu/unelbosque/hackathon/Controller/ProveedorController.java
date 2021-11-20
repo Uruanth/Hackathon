@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
@@ -19,9 +18,15 @@ public class ProveedorController {
     
     @Autowired
     PorveedorRepository proveedorRepository;
-
+    
+    /**
+     * This method access to all the suppliers in the database 
+     * @param nombre
+     * @return List of suppliers
+     */
     @GetMapping("/proveedors")
     public ResponseEntity<List<Proveedor>> getAllProveedors(@RequestParam(required = false) String nombre) {
+    	
         try {
             List<Proveedor> proveedores = new ArrayList<>();
             if (nombre == null) {
@@ -43,7 +48,11 @@ public class ProveedorController {
         }
     }
 
-
+    /**
+     * This method creates a supplier in the database
+     * @param proveedor
+     * @return HTTP response
+     */
     @PostMapping("/proveedor")
     public ResponseEntity<Proveedor> crearProveedor(@RequestBody Proveedor proveedor) {
 
@@ -72,9 +81,13 @@ public class ProveedorController {
 
     }
 
-
+    /**
+     * This method find a supplier by code in the database by code
+     * @param codigo
+     * @return HTTP response
+     */
     @GetMapping("/proveedor/{codigo}")
-    public ResponseEntity<List<Proveedor>> getProductoByCode(@PathVariable("codigo") String codigo) {
+    public ResponseEntity<List<Proveedor>> getProveedorByCode(@PathVariable("codigo") String codigo) {
 
         try {
             List<Proveedor> proveedor = proveedorRepository.findByCodigo(codigo);
@@ -92,7 +105,12 @@ public class ProveedorController {
 
     }
 
-
+    /**
+     * This method update the supplier by code in the database
+     * @param codigo
+     * @param proveedor
+     * @return HTTP response
+     */
     @PutMapping("/proveedor/{codigo}")
     public ResponseEntity<Proveedor> updateProveedor(@PathVariable("codigo") String codigo, @RequestBody Proveedor proveedor) {
 
@@ -121,9 +139,13 @@ public class ProveedorController {
 
     }
 
-
+    /**
+     * This method delete the supplier by code in the database
+     * @param codigo
+     * @return HTTP response
+     */
     @DeleteMapping("/proveedor/{codigo}")
-    public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("codigo") String codigo) {
+    public ResponseEntity<HttpStatus> deleteProveedor(@PathVariable("codigo") String codigo) {
         try {
 
             proveedorRepository.deleteByCodigo(codigo);
@@ -134,9 +156,13 @@ public class ProveedorController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
+    /**
+     * This method delete all the suppliers in the database
+     * @return HTTP response
+     */
     @DeleteMapping("/proveedor")
-    public ResponseEntity<HttpStatus> deleteAllProduct() {
+    public ResponseEntity<HttpStatus> deleteAllProveedor() {
         try {
             proveedorRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.OK);
