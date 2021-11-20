@@ -46,7 +46,7 @@ public class CuponController {
 	        }
 	    }
 	@PostMapping("/cupon")
-	public ResponseEntity<Cupon> crearProveedor(@RequestBody Cupon cupon) {
+	public ResponseEntity<Cupon> crearCupon(@RequestBody Cupon cupon) {
 
 		try {
 
