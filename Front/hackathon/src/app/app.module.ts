@@ -32,6 +32,8 @@ import { BorrarProveedoresComponent } from './componentes/formularios/proveedore
 import { InfoProveedoresComponent } from './componentes/información/info-proveedores/info-proveedores.component';
 import { InfoBeneficiariosComponent } from './componentes/información/info-beneficiarios/info-beneficiarios.component';
 import { InfoDonacionComponent } from './componentes/información/info-donacion/info-donacion.component';
+import { LandingComponent } from './componentes/landing/landing.component';
+import { BuscarComponent } from './componentes/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +59,11 @@ import { InfoDonacionComponent } from './componentes/información/info-donacion/
     BorrarProveedoresComponent,
     InfoProveedoresComponent,
     InfoBeneficiariosComponent,
-    InfoDonacionComponent
-    
+    InfoDonacionComponent,
+    LandingComponent,
+    BuscarComponent
+
+
   ],
 
   imports: [

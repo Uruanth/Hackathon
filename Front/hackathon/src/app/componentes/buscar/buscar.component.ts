@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tarjeta-benefi',
-  templateUrl: './tarjeta-benefi.component.html',
-  styleUrls: ['./tarjeta-benefi.component.css']
+  selector: 'app-buscar',
+  templateUrl: './buscar.component.html',
+  styleUrls: ['./buscar.component.css']
 })
-export class TarjetaBenefiComponent implements OnInit {
+export class BuscarComponent implements OnInit {
 
-  listaTemporal = [
+  lista = [
     {
       "id": "6197e402e84d335376afa2bb",
       "nombre": "nombre 1",
@@ -111,25 +111,27 @@ export class TarjetaBenefiComponent implements OnInit {
   ]
 
 
-  @Input() benefi: any[] = [];
 
-  lista2!: Array<any>;
   constructor() { }
 
   ngOnInit(): void {
-
-    console.log(typeof this.listaTemporal)
-    var a2: any[] = [];
-    let a = this.listaTemporal.map((el) => {
-      if (el.nombre.includes("nam")) {
-        a2.push(el);
-      }
-    });
-
-    console.log(a2);
-    this.lista2 = a2;
-    // console.log(a2);
-
   }
+
+
+  listaResult: any[]=[];
+  buscar(bb: string) {
+    console.log("buscar " + bb);
+    let a = this.lista.filter((el) => {
+      if (el.nombre.includes(bb)) {
+        console.log(el);
+        return el;
+      }
+      return "";
+    });
+    console.log(a)
+    this.listaResult = a;
+  }
+
+
 
 }
