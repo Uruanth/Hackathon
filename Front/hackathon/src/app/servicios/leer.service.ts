@@ -20,5 +20,8 @@ export class LeerService {
     return this.http.get(urlapi);
   }
 
+  codigoRespuesta(urlapi: string) {
+    return this.http.get(urlapi, { observe: 'response' });
 
+  }
 }

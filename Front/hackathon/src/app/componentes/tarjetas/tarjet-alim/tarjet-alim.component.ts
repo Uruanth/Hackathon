@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
-import { PruebasService } from 'src/app/servicios/pruebas.service';
+import { Router } from '@angular/router';
+import { LeerService } from 'src/app/servicios/leer.service';
 
 @Component({
   selector: 'app-tarjet-alim',
@@ -9,21 +9,18 @@ import { PruebasService } from 'src/app/servicios/pruebas.service';
 })
 export class TarjetAlimComponent implements OnInit {
 
-  urlbase = "";
-  codigo = "";
+  urlbase = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/alimentos";
 
 
   lista: any = [];
 
-  constructor(private pru: PruebasService) { }
+  constructor(private read: LeerService, private router: Router) { }
 
   ngOnInit(): void {
 
     
-    this.pru.otroMetodo().subscribe( data => {
-      console.log(data);
+    this.read.leerTodos(this.urlbase).subscribe( data => {
       this.lista = data;
-      console.log("this.lista");
       console.log(this.lista);
       for(let a of this.lista) {
         console.log(a);
@@ -31,6 +28,12 @@ export class TarjetAlimComponent implements OnInit {
 
     });
 
+  }
+
+
+  verInfo(a:any){
+    console.log(a.codigo);
+    this.router.navigate(['alimentos', a.codigo])
   }
 
 }

@@ -18,7 +18,7 @@ export class PruebasService {
 
   // API url
   baseApiUrl = "http://localhost:8080/api/usuarios";
-  baseApiUrl2 = "http://54.152.79.84:8080/hackathon-0.0.3-SNAPSHOT/api/beneficiarios";
+  baseApiUrl2 = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/beneficiarios";
 
   //variable auxiliar que almacena resultados de cada envio
   resultados = Array();

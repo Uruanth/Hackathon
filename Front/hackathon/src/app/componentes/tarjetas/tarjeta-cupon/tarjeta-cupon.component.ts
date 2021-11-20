@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Subject, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { LeerService } from 'src/app/servicios/leer.service';
 
 @Component({
   selector: 'app-tarjeta-cupon',
@@ -9,49 +8,32 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./tarjeta-cupon.component.css']
 })
 export class TarjetaCuponComponent {
-//Función constructora
-constructor(private objetohttp: HttpClient) { }
 
-///////////////// GET /////////////////////////////
+  urlapi = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/cupones"
 
-//variable receptora de documentos
-res: any ;
-//variable contenedora de contenidos
-contenido!: any[];
-//url api get
-urlapiGET: string = "http://localhost:8080/api/productos";
+  contenido: any = [];
 
-//FUNCIÓN DE CONTROL DE ERRORES
-handleError(error: HttpErrorResponse) {
-  let errorMessage = 'Error desconocido!';
-  if (error.error instanceof ErrorEvent) {
-    // Errores del lado del cliente
-    errorMessage = `Error: ${error.error.message}\n ${error.status}`;
-  } else {
-    // Errores del lado del servidor
-    errorMessage = `Codigo de Error: ${error.status} \nMensaje: ${error.message}`;
+  codigoRespuesta!: number;
+
+  constructor(private read: LeerService, private router: Router) {
+      this.read.codigoRespuesta(this.urlapi).subscribe(data => {
+        this.codigoRespuesta=data.status;
+        if(data.status == 200){
+          this.obtenerDatos();
+        }
+
+      });
   }
-  //MOSTRANDO UN ERROR EN UNA ALERTA
-  //window.alert(errorMessage);
-  return throwError(errorMessage);
+
+  verInfo(a: any) {
+    this.router.navigate(['alimentos', a.categoria])
+  }
+
+  obtenerDatos(){
+    this.read.leerTodos(this.urlapi).subscribe(data => {
+      console.log("data trabajos");
+      console.log(data);
+      this.contenido = data;
+  });
 }
-
-///////////////// METODOS ANGULAR /////////////////////////////
-
-//FUNCIÓN DE EJECUCIÓN ANTES DE LA CARGA DE LA PAGINA
-
-leerProveedor(): void {
-
-  //utilizando el servicio en la url
-  this.res = this.objetohttp.get(this.urlapiGET).pipe(catchError(this.handleError));
-
-  //suscribe el archivo json y lo convierte   
-  this.res.subscribe((datos: any[]) => {
-    this.contenido = datos;
-    console.log("contenido"+ this.contenido);
-  });   
-  console.log("contenido"+ this.contenido); 
-  };  
 }
-
-

@@ -11,5 +11,8 @@ export class BorrarService {
   borrar(urlapi: string, codigo: string) {
     return this.http.delete(`${urlapi}${codigo}`);
   }
-
+  
+  codigoRespuesta(urlapi: string, codigo: string) {
+    return this.http.delete(`${urlapi}${codigo}`, {observe: 'response'});
+  }
 }
