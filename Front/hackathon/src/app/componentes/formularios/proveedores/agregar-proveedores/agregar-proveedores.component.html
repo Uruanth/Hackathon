@@ -1,27 +1,22 @@
-<div class="container position-absolute top-50 start-50 translate-middle">
-    <div>
-        <h1>Agregar datos del proveedor</h1>
+<div class="contenedor my-5">
+    <div class="align-items-center pt-5">
+        <h1>Registros de proveedor</h1>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2">
             <div class="col-auto">
                 <label class="col-form-label">Nombre del proveedor</label>
             </div>
-            <div class="col-auto" id="entrada">
+            <div class="col-6">
                 <input type="text" class="form-control" aria-describedby="passwordHelpInline"
                     placeholder="Ingrese el nombre aqui...">
             </div>
         </div>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2 ">
             <div class="col-auto">
                 <label for="" class="col-form-label">Horario de disponibilidad</label>
             </div>
-            <div class="col-4">
-                <input type="date" id="" class="form-control" aria-describedby="passwordHelpInline">
-            </div>
-        </div>
-
-        <div class="row align-items-center mt-2">
+            
             <div class="col-auto">
                 <label for="" class="col-form-label">Desde</label>
             </div>
@@ -36,20 +31,17 @@
             </div>
         </div>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2">
             <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio  </label>
+                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
                 <select [(ngModel)]="opcionSelect" (change)="capturar()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Si</option>
                     <option value="2">No</option>
                 </select>
             </div>
-        </div>
-
-        <div class="row align-items-center mt-2">
             <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección  </label>
+                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección </label>
                 <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Escribir la dirección</option>
@@ -58,24 +50,25 @@
             </div>
         </div>
 
-        <div class="row g-3 align-items-center mt-2">
-            <iframe *ngIf="mostrar === 2"
+        <div class="row" *ngIf="mostrar2 === 2">
+            <div col-8 text-center>
+            <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789655790045!3d4.64862594373708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637246431410!5m2!1ses!2sco"
-                width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" class="position-relative">
+                width="400" height="300" style="border:0;" loading="lazy" class="mx-auto d-block">
             </iframe>
         </div>
-        <div class="row align-items-center mt-2" *ngIf="mostrar === 1">
+        </div>
+        <div class="row justify-content-center mt-2" *ngIf="mostrar2 === 1">
             <div class="col-auto">
                 <label for="" class="col-form-label">Ingrese la dirección</label>
             </div>
-            <div class="col-auto">
+            <div class="col-6">
                 <input type="text" id="entrada" class="form-control" aria-describedby="passwordHelpInline"
                     placeholder="Ingrese su dirección">
             </div>
         </div>
-        <div class="d-grid col-5 mx-auto">
-                <button class="btn btn-success" type="button">Agregar Información</button>
+        <div class="d-grid gap-2 col-2 mx-auto mt-3">
+            <button class="btn btn-success" type="button">Agregar Información</button>
         </div>
     </div>
 </div>
-

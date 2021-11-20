@@ -9,7 +9,7 @@ import { LeerService } from 'src/app/servicios/leer.service';
 })
 export class TarjetAlimComponent implements OnInit {
 
-  urlbase = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/alimentos";
+  urlbase = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/alimentos";
 
 
   lista: any = [];
