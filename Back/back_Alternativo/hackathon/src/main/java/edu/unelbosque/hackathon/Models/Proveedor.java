@@ -21,7 +21,6 @@ public class Proveedor {
     }
 
     public Proveedor(String nombre, String codigo, String ubicacion, String disponibilidadEnvio, String abiertoDesde, String abiertoHasta) {
-        this.id = id;
         this.nombre = nombre;
         this.codigo = codigo;
         this.ubicacion = ubicacion;

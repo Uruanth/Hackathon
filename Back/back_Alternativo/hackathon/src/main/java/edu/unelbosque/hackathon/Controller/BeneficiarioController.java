@@ -101,9 +101,26 @@ public class BeneficiarioController {
         }
 
     }
+    
+    @GetMapping("/beneficiario/{nombre}")
+    public ResponseEntity<List<Beneficiario>> getProductoByNombre(@PathVariable("nombre") String nombre) {
 
+        try {
+            List<Beneficiario> beneficiario = beneficiarioRepository.findByCodigo(nombre);
 
+            if (beneficiario.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
+            }
+
+            return new ResponseEntity<>(beneficiario, HttpStatus.OK);
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
     @PutMapping("/beneficiario/{codigo}")
     public ResponseEntity<Beneficiario> updateBeneficiario(@PathVariable("codigo") String codigo, @RequestBody Beneficiario beneficiario) {
@@ -132,12 +149,51 @@ public class BeneficiarioController {
 
     }
 
+    @PutMapping("/beneficiario/{nombre}")
+    public ResponseEntity<Beneficiario> updateBeneficiarioNombre(@PathVariable("nombre") String nombre, @RequestBody Beneficiario beneficiario) {
 
+        List<Beneficiario> beneficiarioList = beneficiarioRepository.findByCodigo(nombre);
+
+        Beneficiario beneficiarioD = beneficiarioList.get(0);
+
+        Optional<Beneficiario> beneficiarioData = Optional.ofNullable(beneficiarioD);
+
+        if (beneficiarioData.isPresent()) {
+
+            Beneficiario benAux=beneficiarioData.get();
+
+            benAux.setNombre(beneficiario.getNombre());
+            benAux.setCodigo(beneficiario.getCodigo());
+            benAux.setPersonasACargo(beneficiario.getPersonasACargo());
+            benAux.setEdades(beneficiario.getEdades());
+            benAux.setRequisitosNutricionales(beneficiario.getRequisitosNutricionales());
+            benAux.setMotivoSolicitud(beneficiario.getMotivoSolicitud());
+            benAux.setUsoEstimado(beneficiario.getUsoEstimado());
+            return new ResponseEntity<>(beneficiarioRepository.save(benAux), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+    
     @DeleteMapping("/beneficiario/{codigo}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("codigo") String codigo) {
         try {
 
             beneficiarioRepository.deleteByCodigo(codigo);
+            return new ResponseEntity<>(HttpStatus.OK);
+
+        } catch (Exception e) {
+
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    @DeleteMapping("/beneficiario/{nombre}")
+    public ResponseEntity<HttpStatus> deleteProducto(@PathVariable("nombre") String nombre) {
+        try {
+
+            beneficiarioRepository.deleteByCodigo(nombre);
             return new ResponseEntity<>(HttpStatus.OK);
 
         } catch (Exception e) {
