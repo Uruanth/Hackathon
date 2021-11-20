@@ -121,8 +121,10 @@ export class LeerComponent implements OnInit {
   ngOnInit(): void {
 
     //    this.leerTodos();
-    // this.probando();
-    console.log(this.listaTemporal);
+    this.probando();
+    //console.log(this.listaTemporal);
+    console.log("this.resultados");
+    console.log(this.resultados);
     
 
   }
@@ -144,7 +146,7 @@ export class LeerComponent implements OnInit {
 
   //----
   // resultados!: Array<any>;
-  resultados = Array();
+  resultados!: any;
 
   // probando() {
   //   console.log("probando")
@@ -172,14 +174,17 @@ export class LeerComponent implements OnInit {
 
 
   async probando() {
-    this.resultados = await this.pruebas.otroMetodo();
-    console.log("resultados");
-    console.log(typeof this.resultados);
-    console.log(this.resultados[0]);
-    for (let a of this.resultados) {
-      console.log("a");
-      console.log(a)
-    }
+    this.pruebas.otroMetodo().subscribe(
+      (response: any) => {
+        let resaux = [];
+        console.log("response");
+        console.log(response.body);
+        this.resultados = response.body;
+      }
+    );
+    
+    console.log("a");
+    
   }
   //----
 
