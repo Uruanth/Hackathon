@@ -25,7 +25,7 @@ export class AgregarProveedoresComponent {
       } else {
         this.mostrar = 0;
       }
-      console.log(this.mostrar);
+      console.log("mostar " + this.mostrar);
       console.log(this.opcionSelect);
   }
 
@@ -39,7 +39,7 @@ export class AgregarProveedoresComponent {
     } else {
       this.mostrar2 = 0;
     }
-    console.log(this.mostrar2);
+    console.log("mostar2 " + this.mostrar2);
     console.log(this.opcionSelect2);
 }
 
