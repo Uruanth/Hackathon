@@ -171,16 +171,16 @@ export class LeerComponent implements OnInit {
   // };
 
 
-  async probando() {
-    this.resultados = await this.pruebas.otroMetodo();
-    console.log("resultados");
-    console.log(typeof this.resultados);
-    console.log(this.resultados[0]);
-    for (let a of this.resultados) {
-      console.log("a");
-      console.log(a)
-    }
-  }
+  // async probando() {
+  //   this.resultados = await this.pruebas.otroMetodo();
+  //   console.log("resultados");
+  //   console.log(typeof this.resultados);
+  //   console.log(this.resultados[0]);
+  //   for (let a of this.resultados) {
+  //     console.log("a");
+  //     console.log(a)
+  //   }
+  // }
   //----
 
 }

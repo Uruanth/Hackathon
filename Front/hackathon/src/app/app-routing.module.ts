@@ -13,6 +13,7 @@ import { TarjetaTrabComponent } from './componentes/tarjetas/tarjeta-trab/tarjet
 import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarjeta-cupon.component';
 import { InfoAlimentoComponent } from './componentes/información/info-alimento/info-alimento.component';
 import { TarjetAlimComponent } from './componentes/tarjetas/tarjet-alim/tarjet-alim.component';
+import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
 
 const routes: Routes = [
   
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'proveedores/agregar', component: AgregarProveedoresComponent},
   { path: 'proveedores/actualizar', component: ActualizarProveedoresComponent},
   { path: 'proveedores/eliminar', component: BorrarProveedoresComponent},
+  { path: 'proveedores/tarjeta', component: TarjetaProvComponent},
   { path: 'beneficiario', component: BeneficiariosComponent},
   { path: 'buscar', component: BuscarComponent },
   { path: 'cupones', component: TarjetaCuponComponent},
