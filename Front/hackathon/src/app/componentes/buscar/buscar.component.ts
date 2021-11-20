@@ -110,26 +110,38 @@ export class BuscarComponent implements OnInit {
     }
   ]
 
+  load: boolean;
 
+  constructor() {
+    this.load = true;
 
-  constructor() { }
+   }
 
   ngOnInit(): void {
   }
 
 
-  listaResult: any[]=[];
+  listaResult: any[] = [];
   buscar(bb: string) {
-    console.log("buscar " + bb);
+    this.load = false;
+    // console.log("buscar " + bb);
     let a = this.lista.filter((el) => {
-      if (el.nombre.includes(bb)) {
-        console.log(el);
-        return el;
+      if (bb != "") {
+        if (el.nombre.includes(bb)) {
+          // console.log(el);
+          return el;
+        }
       }
       return "";
     });
-    console.log(a)
-    this.listaResult = a;
+
+    if (a.length == 0) {
+      this.listaResult = [];
+    } else {
+      this.listaResult = a;
+    }
+
+    this.load = false;
   }
 
 

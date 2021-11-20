@@ -38,6 +38,8 @@ import { InfoCuponesComponent } from './componentes/información/info-cupones/in
 import { InfoTrabajosComponent } from './componentes/información/info-trabajos/info-trabajos.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +69,7 @@ import { InfoTrabajosComponent } from './componentes/información/info-trabajos/
     BuscarComponent,
     InfoCuponesComponent,
     InfoTrabajosComponent
+
 
 
   ],
