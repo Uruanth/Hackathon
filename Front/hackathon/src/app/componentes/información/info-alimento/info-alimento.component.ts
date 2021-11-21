@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LeerService } from 'src/app/servicios/leer.service';
 
 @Component({
   selector: 'app-info-alimento',
@@ -8,12 +9,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InfoAlimentoComponent implements OnInit {
 
+  urlbase = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/alimento/";
+  alimento: any;
+  codigo!: string;
 
-  constructor(private cabecera: ActivatedRoute) { 
+  constructor(private cabecera: ActivatedRoute, private read: LeerService) {
 
-   this.cabecera.params.subscribe(params => {
-     console.log(params['codigo']);
-   })
+    this.cabecera.params.subscribe(params => {
+      this.codigo = params['codigo'];
+
+      this.read.leer(this.urlbase, this.codigo).subscribe(data => {
+        this.alimento = data;
+      });
+
+    })
 
   }
 
@@ -23,6 +32,6 @@ export class InfoAlimentoComponent implements OnInit {
 
   }
 
-  
+
 
 }

@@ -1,11 +1,10 @@
 <div class="row ">
-    <div class="col-auto puntero" >
+    <div class="col-auto puntero" (click)="verInfo(a)" *ngFor="let a of contenido">
         <div class="card mt-2" style="width: 18rem;">
             <img src="assets/imagenes/foto-perfil-generica.jpg" class="img-fluid" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Titulo</h5>
-                <p class="card-text">Texto</p>
-                <a routerLink="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">{{a.nombre}}</h5>
+                <p class="card-text">{{ a.fechaVencimiento }}</p>
             </div>
         </div>
     </div>

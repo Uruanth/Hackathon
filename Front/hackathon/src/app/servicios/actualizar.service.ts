@@ -9,19 +9,12 @@ export class ActualizarService {
   constructor(private http: HttpClient) { }
 
   actualizar(urlapi: string, codigo: string, body: any): any {
-    let content!: any[];
-    let res:any;
-
-    res = this.http.put(`${urlapi}${codigo}`,
+   return this.http.put(`${urlapi}${codigo}`,
     body);
-    res.subscribe((datos: any[]) => {
-      content = datos;
-      console.log(content);
-    });
-    console.log("ok")
-    return content;
-    
-    
   }
-
+  
+  codigoRespuesta(urlapi: string, codigo: string, body: any): any {
+   return this.http.put(`${urlapi}${codigo}`,
+    body, { observe: 'response'});
+  }
 }

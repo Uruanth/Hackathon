@@ -9,18 +9,15 @@ export class CrearService {
   constructor(private http: HttpClient) { }
 
 
-crear(urlapi: string, body: any): any {
-  let content!: any[];
-  let res:any;
+  crear(urlapi: string, body: any) {
 
-  res = this.http.post(`${urlapi}`,
-  body);
-  res.subscribe((datos: any[]) => {
-    content = datos;
-    console.log(content);
-  });
-  console.log("ok")
-  return content;
-}
+    return this.http.post(`${urlapi}`,
+      body);
+  }
+  codigoRespueta(urlapi: string, body: any) {
+
+    return this.http.post(`${urlapi}`,
+      body, {observe: 'response'});
+  }
 
 }

@@ -1,15 +1,26 @@
 <h1>Info trabajo</h1>
 <div class="row align-items-center">
     <img src="https://cdn.pixabay.com/photo/2016/03/31/18/24/screwdriver-1294338__340.png" alt=""
-        class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-    <p class="col-md-6 offset-md-0">
+        class="col" alt="...">
+    <div class="col-md-6 offset-md-0">
 
         <!--Tomado de wikipedia-->
         El trabajo o labor es la actividad que las personas realizan ya sea como deber o actividad dependiente de la
         profesión, necesidades y deseos de una comunidad más amplia.​ Alternativamente, el trabajo puede verse como la
         actividad humana que contribuye hacia los bienes y servicios dentro de una economía.​
+        <br>
+        <br>
+        Los trabajos encontrados: <br>
+        <div *ngFor="let t of trabajos">
+            Categoria: {{ t.categoria }} <br>
+            Requisito: {{ t.requisito }} <br>
+            Ubicacion: {{ t.ubicacion }} <br>
+            Número Contacto: {{ t.numerocontacto }} <br>
+            Bonificacion: {{ t.bonificacion }} <br><br>
+        </div>
 
-    </p>
+
+    </div>
     <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.51643529313!2d-74.24823739450852!3d4.648283649404979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637334518014!5m2!1ses!2sco"
         style="" allowfullscreen="" loading="lazy" class="col-auto"></iframe>

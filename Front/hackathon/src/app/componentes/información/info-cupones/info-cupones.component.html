@@ -1,8 +1,8 @@
 <h1>Info cupones</h1>
 <div class="row align-items-center">
     <img src="https://cdn.pixabay.com/photo/2017/01/23/23/45/coupon-2004245__340.png" alt=""
-        class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-    <p class="col-md-6 offset-md-0">
+        class="col" alt="...">
+    <div class="col-md-6 offset-md-0 cuerpo">
         <!-- Tomado de wikipedia-->
         En marketing, un cupón es un billete o documento que puede ser intercambiado por descuentos financieros o
         descuentos al comprar un producto.
@@ -15,7 +15,16 @@
         ahorros, los cupones funcionan como una forma de discriminación de precios, permitiendo a los minoristas ofrecer
         un precio más bajo sólo a aquellos consumidores que de otro modo irían a otra parte. Además, los cupones también
         pueden ser dirigidos selectivamente a los mercados regionales en los que la competencia de precios es grande.
-    </p>
+        <br>
+        <br>
+        Los de los cupones encontrados:<br>
+        <div *ngFor="let c of cupones">
+            Categoria: {{ c.categoria }}<br>
+            Requisito: {{ c.requisito }}<br>
+            Ubicacion: {{ c.ubicacion }}<br>
+            Número de contacto: {{ c.numerocontacto }}<br>
+        </div>
+    </div>
 
     <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.51643529313!2d-74.24823739450852!3d4.648283649404979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637334518014!5m2!1ses!2sco"

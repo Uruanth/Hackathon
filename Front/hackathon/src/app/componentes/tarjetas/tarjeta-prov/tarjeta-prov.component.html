@@ -1,19 +1,18 @@
 <div class="row">
-    <div class="col-auto" *ngFor="let dato of contenido">
+    <div class="col-auto" (click)="verInfo(dato)" *ngFor="let dato of contenido">
         <div class="card m-2" style="width: 18rem;">
             <img src="assets/imagenes/foto-perfil-generica.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{dato.codigoproducto}}</h5>
-                <p class="card-text">Description</p>
+                <h5 class="card-title">{{dato.nombre}}</h5>
+                <p class="card-text">{{ dato.abiertoDesde}} - {{dato.abiertoHasta}}</p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"></li>
-                <li class="list-group-item">{{dato.nombreproducto}}</li>
+                <li class="list-group-item">{{dato.ubicacion}}</li>
               
             </ul>
             
         </div>
     </div>
-    <button class="btn btn-primary" type="button" (click)="leerProveedor()">
-    </button>
+    
 </div>
