@@ -66,7 +66,7 @@ export class AgregarProveedoresComponent {
     console.log(this.correcto)
   }
 
-  showNotification(from, align, type) {
+  showNotification(from:any, align:any, type:any) {
     switch (type) {
       case 1:
         this.toastr.success('<span <i class="fas fa-check"></i>></span><b>Proveedor creado con exito</b>', '', {
