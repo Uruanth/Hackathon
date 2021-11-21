@@ -1,21 +1,14 @@
-.container {
-    background-color: greenyellow;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    width: 40%;
-    height: 230px;
-    margin-top: 10px;
-    margin-left: 15px;
-  }
+.contenedor {
+    
+  width: 95%;
+  /* color: rgba(30, 151, 36, 0.555); */
   
-  h1 {text-align: center}
-  
-  .input-group{
-  background-color: transparent;
-  border: none;
-  }
-  
-  #entrada{
-    min-width: 400px;
-  }
+}
+
+h1 {text-align: center}
+
+@media (max-width: 700px) {
+    span{
+        display: none;
+    }
+}
