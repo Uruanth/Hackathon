@@ -4,7 +4,7 @@
     <div class="col">
         <input type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar" #termino>
     </div>
-    <!--<app-loading class="mt-3" *ngIf="load==true"></app-loading>-->
+    <app-loading class="mt-3" *ngIf="load == true"></app-loading>
 </div>
 <div class="row">
     <app-tarjeta-benefi [benefi] = "listaResult"></app-tarjeta-benefi>

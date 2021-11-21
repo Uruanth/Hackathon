@@ -58,7 +58,7 @@ public class AlimentoController {
     public ResponseEntity<Alimento> crearAlimento(@RequestBody Alimento alimento) {
 
         try {
-
+       
             String nombre = alimento.getNombre();
             String codigo = alimento.getCodigo();
             String fechaVencimiento = alimento.getFechaVencimiento();

@@ -18,5 +18,9 @@ public interface PorveedorRepository extends MongoRepository<Proveedor, String> 
      * @return list of suppliers found by code
      */
     List<Proveedor> findByCodigo(String codigo);
+    
+    /**
+     * @param codigo
+     */
     void deleteByCodigo(String codigo);
 }

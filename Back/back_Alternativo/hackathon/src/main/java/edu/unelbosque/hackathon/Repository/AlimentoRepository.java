@@ -19,6 +19,10 @@ public interface AlimentoRepository extends MongoRepository<Alimento,String> {
      * @return list of food found by code
      */
     List<Alimento> findByCodigo(String codigo);
+    
+    /**
+     * @param codigo
+     */
     void deleteByCodigo(String codigo);
 
 }

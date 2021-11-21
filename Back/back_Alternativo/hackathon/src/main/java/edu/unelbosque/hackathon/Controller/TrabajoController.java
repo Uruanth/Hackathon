@@ -46,7 +46,7 @@ public class TrabajoController {
 
 
     @PostMapping("/trabajo")
-    public ResponseEntity<Trabajo> crearProveedor(@RequestBody Trabajo trabajo) {
+    public ResponseEntity<Trabajo> crearTrabajo(@RequestBody Trabajo trabajo) {
 
         try {
 
@@ -72,7 +72,7 @@ public class TrabajoController {
 
 
     @GetMapping("/trabajo/{categoria}")
-    public ResponseEntity<List<Trabajo>> getProductoByCategoria(@PathVariable("categoria") String categoria) {
+    public ResponseEntity<List<Trabajo>> getTrabajoByCategoria(@PathVariable("categoria") String categoria) {
 
         try {
             List<Trabajo> trabajo = trabajoRepository.findByCategoria(categoria);

@@ -115,21 +115,22 @@ export class TarjetaBenefiComponent implements OnInit {
   @Input() benefi: any[] = [];
 
   lista2!: Array<any>;
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
 
-  ngOnInit(): void {
-
-    console.log(typeof this.listaTemporal)
+    // console.log(typeof this.listaTemporal)
     var a2: any[] = [];
     let a = this.listaTemporal.map((el) => {
       if (el.nombre.includes("nam")) {
         a2.push(el);
       }
     });
-
-    console.log(a2);
-    this.lista2 = a2;
-    // console.log(a2);
+    if(this.benefi.length == 0){
+      this.benefi = a2;
+    } 
+  }
+  
+  ngOnInit(): void {
+    
 
   }
 
