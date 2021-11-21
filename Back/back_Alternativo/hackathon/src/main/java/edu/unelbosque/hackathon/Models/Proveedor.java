@@ -19,7 +19,15 @@ public class Proveedor {
 
     public Proveedor() {
     }
-
+    
+    /**
+     * @param nombre
+     * @param codigo
+     * @param ubicacion
+     * @param disponibilidadEnvio
+     * @param abiertoDesde
+     * @param abiertoHasta
+     */
     public Proveedor(String nombre, String codigo, String ubicacion, String disponibilidadEnvio, String abiertoDesde, String abiertoHasta) {
         this.nombre = nombre;
         this.codigo = codigo;

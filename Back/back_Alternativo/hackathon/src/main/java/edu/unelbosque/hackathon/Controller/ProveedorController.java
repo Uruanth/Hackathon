@@ -22,7 +22,7 @@ public class ProveedorController {
     /**
      * This method access to all the suppliers in the database 
      * @param nombre
-     * @return List of suppliers
+     * @return List of suppliers and HTTP response
      */
     @GetMapping("/proveedors")
     public ResponseEntity<List<Proveedor>> getAllProveedors(@RequestParam(required = false) String nombre) {
@@ -33,11 +33,12 @@ public class ProveedorController {
                 proveedorRepository.findAll().forEach(proveedores::add);
             } else {
                 proveedorRepository.findByNombre(nombre).forEach(proveedores::add);
+                
             }
             if (proveedores.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-
+        
             return new ResponseEntity<List<Proveedor>>(proveedores, HttpStatus.OK);
 
 
@@ -51,7 +52,7 @@ public class ProveedorController {
     /**
      * This method creates a supplier in the database
      * @param proveedor
-     * @return HTTP response
+     * @return supplier created and HTTP response
      */
     @PostMapping("/proveedor")
     public ResponseEntity<Proveedor> crearProveedor(@RequestBody Proveedor proveedor) {
@@ -69,9 +70,12 @@ public class ProveedorController {
             Proveedor nuevo = new Proveedor(nombre, codigo, ubicacion,
                     disponibilidadEnvio, abiertoDesde, abiertoHasta);
 
-
+            
             proveedorRepository.save(nuevo);
-            return new ResponseEntity<Proveedor>(nuevo, HttpStatus.CREATED);
+
+            
+            return new ResponseEntity<Proveedor>(nuevo, HttpStatus.OK);
+
 
 
         } catch (Exception e) {
@@ -84,7 +88,7 @@ public class ProveedorController {
     /**
      * This method find a supplier by code in the database by code
      * @param codigo
-     * @return HTTP response
+     * @return List of suppliers and HTTP response
      */
     @GetMapping("/proveedor/{codigo}")
     public ResponseEntity<List<Proveedor>> getProveedorByCode(@PathVariable("codigo") String codigo) {
@@ -96,7 +100,7 @@ public class ProveedorController {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
             }
-
+            System.out.println("Valores: "+proveedor);
             return new ResponseEntity<>(proveedor, HttpStatus.OK);
 
         } catch (Exception e) {

@@ -3,7 +3,6 @@ package edu.unelbosque.hackathon.Models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
 @Document(collection = "beneficiario")
 public class Beneficiario {
 
@@ -32,81 +31,90 @@ public class Beneficiario {
                 '}';
     }
 
-    public Beneficiario(String nombre, String codigo, int personasACargo, int edades, String requisitosNutricionales, String motivoSolicitud, String usoEstimado) {
-        this.id =id;
-        this.nombre = nombre;
-        this.codigo = codigo;
-        this.personasACargo = personasACargo;
-        this.edades = edades;
-        this.requisitosNutricionales = requisitosNutricionales;
-        this.motivoSolicitud = motivoSolicitud;
-        this.usoEstimado = usoEstimado;
-    }
+	/**
+	 * @param nombre
+	 * @param codigo
+	 * @param personasACargo
+	 * @param edades
+	 * @param requisitosNutricionales
+	 * @param motivoSolicitud
+	 * @param usoEstimado
+	 */
+	public Beneficiario(String nombre, String codigo, int personasACargo, int edades,
+			String requisitosNutricionales, String motivoSolicitud, String usoEstimado) {
+		
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.personasACargo = personasACargo;
+		this.edades = edades;
+		this.requisitosNutricionales = requisitosNutricionales;
+		this.motivoSolicitud = motivoSolicitud;
+		this.usoEstimado = usoEstimado;
+	}
+	
+	public String getId() {
+		return id;
+	}
 
-    public Beneficiario() {
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getCodigo() {
+		return codigo;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
-    public String getCodigo() {
-        return codigo;
-    }
+	public int getPersonasACargo() {
+		return personasACargo;
+	}
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+	public void setPersonasACargo(int personasACargo) {
+		this.personasACargo = personasACargo;
+	}
 
-    public int getPersonasACargo() {
-        return personasACargo;
-    }
+	public int getEdades() {
+		return edades;
+	}
 
-    public void setPersonasACargo(int personasACargo) {
-        this.personasACargo = personasACargo;
-    }
+	public void setEdades(int edades) {
+		this.edades = edades;
+	}
 
-    public int getEdades() {
-        return edades;
-    }
+	public String getRequisitosNutricionales() {
+		return requisitosNutricionales;
+	}
 
-    public void setEdades(int edades) {
-        this.edades = edades;
-    }
+	public void setRequisitosNutricionales(String requisitosNutricionales) {
+		this.requisitosNutricionales = requisitosNutricionales;
+	}
 
-    public String getRequisitosNutricionales() {
-        return requisitosNutricionales;
-    }
+	public String getMotivoSolicitud() {
+		return motivoSolicitud;
+	}
 
-    public void setRequisitosNutricionales(String requisitosNutricionales) {
-        this.requisitosNutricionales = requisitosNutricionales;
-    }
+	public void setMotivoSolicitud(String motivoSolicitud) {
+		this.motivoSolicitud = motivoSolicitud;
+	}
 
-    public String getMotivoSolicitud() {
-        return motivoSolicitud;
-    }
+	public String getUsoEstimado() {
+		return usoEstimado;
+	}
 
-    public void setMotivoSolicitud(String motivoSolicitud) {
-        this.motivoSolicitud = motivoSolicitud;
-    }
+	public void setUsoEstimado(String usoEstimado) {
+		this.usoEstimado = usoEstimado;
+	}
 
-    public String getUsoEstimado() {
-        return usoEstimado;
-    }
-
-    public void setUsoEstimado(String usoEstimado) {
-        this.usoEstimado = usoEstimado;
-    }
+    
 }
