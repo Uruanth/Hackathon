@@ -72,8 +72,10 @@ public class ProveedorController {
 
             
             proveedorRepository.save(nuevo);
+
             
             return new ResponseEntity<Proveedor>(nuevo, HttpStatus.OK);
+
 
 
         } catch (Exception e) {
