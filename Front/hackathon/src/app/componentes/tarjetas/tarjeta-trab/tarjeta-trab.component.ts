@@ -7,9 +7,9 @@ import { LeerService } from 'src/app/servicios/leer.service';
   templateUrl: './tarjeta-trab.component.html',
   styleUrls: ['./tarjeta-trab.component.css']
 })
-export class TarjetaTrabComponent  {
+export class TarjetaTrabComponent {
 
-  urlapi = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/trabajos"
+  urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/trabajos"
 
   contenido: any = [];
 
@@ -24,7 +24,7 @@ export class TarjetaTrabComponent  {
 
   verInfo(a: any) {
     console.log(a.codigo);
-    this.router.navigate(['alimentos', a.categoria])
+    this.router.navigate(['trabajos', a.categoria])
   }
 
 }

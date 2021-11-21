@@ -3,10 +3,9 @@ img {
     width: 250px;
     height: 200px;
 }
-p {
+.cuerpo {
     text-align: justify;
-width: 400px;
-height: 400px;
+max-width: 400px;
 }
 
 iframe {

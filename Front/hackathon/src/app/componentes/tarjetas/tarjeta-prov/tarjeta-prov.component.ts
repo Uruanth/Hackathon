@@ -9,23 +9,32 @@ import { Router } from '@angular/router';
 })
 export class TarjetaProvComponent {
 
-  //variable contenedora de contenidos
-  contenido: any = [];
   //url api get
-  urlapiGET: string = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/proveedors";
+  urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/proveedors";
 
-  //Función constructora
+  contenido: any = [];
+
+  codigoRespuesta!: number;
+
   constructor(private read: LeerService, private router: Router) {
-    this.read.leerTodos(this.urlapiGET).subscribe(data => {
-      this.contenido = data;
+    this.read.codigoRespuesta(this.urlapi).subscribe(data => {
+      this.codigoRespuesta = data.status;
+      console.log(this.codigoRespuesta);
+      if (data.status == 200) {
+        this.obtenerDatos();
+      }
+
     });
-
-
   }
 
-  verInfo(a:any){
-    console.log(a.codigo);
-    this.router.navigate(['alimentos', a.codigo])
+  verInfo(a: any) {
+    this.router.navigate(['proveedores', a.codigo])
+  }
+
+  obtenerDatos() {
+    this.read.leerTodos(this.urlapi).subscribe(data => {
+      this.contenido = data;
+    });
   }
 
 }

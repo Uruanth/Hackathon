@@ -9,7 +9,7 @@ import { LeerService } from 'src/app/servicios/leer.service';
 })
 export class TarjetaCuponComponent {
 
-  urlapi = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/cupones"
+  urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/cupones"
 
   contenido: any = [];
 
@@ -26,13 +26,11 @@ export class TarjetaCuponComponent {
   }
 
   verInfo(a: any) {
-    this.router.navigate(['alimentos', a.categoria])
+    this.router.navigate(['cupones', a.categoria])
   }
 
   obtenerDatos(){
     this.read.leerTodos(this.urlapi).subscribe(data => {
-      console.log("data trabajos");
-      console.log(data);
       this.contenido = data;
   });
 }

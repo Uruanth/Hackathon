@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { data } from 'jquery';
 import { LeerService } from 'src/app/servicios/leer.service';
 
 @Component({
@@ -8,31 +7,36 @@ import { LeerService } from 'src/app/servicios/leer.service';
   templateUrl: './tarjeta-benefi.component.html',
   styleUrls: ['./tarjeta-benefi.component.css']
 })
-export class TarjetaBenefiComponent implements OnInit {
+export class TarjetaBenefiComponent {
 
- urlapi = "http://54.152.79.84:8080/hackathon-0.0.1-hackathon/api/beneficiarios";
+  urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/beneficiarios";
 
   @Input() benefi: any = [];
 
   lista2!: any;
-  constructor(private router: Router, private read: LeerService) { 
+  contenido: any = [];
 
-   this.read.leerTodos(this.urlapi).subscribe(data => {
-     if(this.benefi.length == 0){
-        this.benefi = data;
-     }
-   })
+  codigoRespuesta!: number;
+
+  constructor(private read: LeerService, private router: Router) {
+      this.read.codigoRespuesta(this.urlapi).subscribe(data => {
+        this.codigoRespuesta=data.status;
+        if(data.status == 200){
+          this.obtenerDatos();
+        }
+
+      });
   }
-  
-  ngOnInit(): void {
-    
 
+  verInfo(a: any) {
+    console.log(a.codigo);
+    this.router.navigate(['beneficiarios', a.codigo])
   }
 
-
-verInfo(a:any){
-  console.log(a.codigo);
-  this.router.navigate(['alimentos', a.codigo])
+  obtenerDatos(){
+    this.read.leerTodos(this.urlapi).subscribe(data => {
+      this.benefi = data;
+  });
 }
 
 }

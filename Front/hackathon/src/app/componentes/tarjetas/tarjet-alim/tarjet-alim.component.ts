@@ -7,33 +7,37 @@ import { LeerService } from 'src/app/servicios/leer.service';
   templateUrl: './tarjet-alim.component.html',
   styleUrls: ['./tarjet-alim.component.css']
 })
-export class TarjetAlimComponent implements OnInit {
+export class TarjetAlimComponent {
 
   urlbase = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/alimentos";
 
 
   lista: any = [];
 
-  constructor(private read: LeerService, private router: Router) { }
+  contenido: any = [];
 
-  ngOnInit(): void {
+  codigoRespuesta!: number;
 
-    
-    this.read.leerTodos(this.urlbase).subscribe( data => {
-      this.lista = data;
-      console.log(this.lista);
-      for(let a of this.lista) {
-        console.log(a);
+  constructor(private read: LeerService, private router: Router) {
+    this.read.codigoRespuesta(this.urlbase).subscribe(data => {
+      this.codigoRespuesta = data.status;
+      if (data.status == 200) {
+        this.obtenerDatos();
       }
 
     });
-
   }
 
-
-  verInfo(a:any){
-    console.log(a.codigo);
+  verInfo(a: any) {
     this.router.navigate(['alimentos', a.codigo])
+  }
+
+  obtenerDatos() {
+    this.read.leerTodos(this.urlbase).subscribe(data => {
+      console.log("data trabajos");
+      console.log(data);
+      this.contenido = data;
+    });
   }
 
 }

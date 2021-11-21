@@ -14,6 +14,10 @@ import { TarjetaCuponComponent } from './componentes/tarjetas/tarjeta-cupon/tarj
 import { InfoAlimentoComponent } from './componentes/información/info-alimento/info-alimento.component';
 import { TarjetAlimComponent } from './componentes/tarjetas/tarjet-alim/tarjet-alim.component';
 import { TarjetaProvComponent } from './componentes/tarjetas/tarjeta-prov/tarjeta-prov.component';
+import { InfoBeneficiariosComponent } from './componentes/información/info-beneficiarios/info-beneficiarios.component';
+import { InfoProveedoresComponent } from './componentes/información/info-proveedores/info-proveedores.component';
+import { InfoCuponesComponent } from './componentes/información/info-cupones/info-cupones.component';
+import { InfoTrabajosComponent } from './componentes/información/info-trabajos/info-trabajos.component';
 
 const routes: Routes = [
   
@@ -25,13 +29,17 @@ const routes: Routes = [
   { path: 'alimentos/:codigo', component: InfoAlimentoComponent },
   { path: 'beneficiarios/tarjeta', component: TarjetaBenefiComponent },
   { path: 'beneficiarios/agregar', component: BeneficiariosComponent },
+  { path: 'beneficiarios/:codigo', component:  InfoBeneficiariosComponent },
   { path: 'proveedores/agregar', component: AgregarProveedoresComponent},
   { path: 'proveedores/actualizar', component: ActualizarProveedoresComponent},
   { path: 'proveedores/eliminar', component: BorrarProveedoresComponent},
   { path: 'proveedores/tarjeta', component: TarjetaProvComponent},
+  { path: 'proveedores/:codigo', component: InfoProveedoresComponent},
   { path: 'beneficiario', component: BeneficiariosComponent},
   { path: 'buscar', component: BuscarComponent },
   { path: 'cupones', component: TarjetaCuponComponent},
+  { path: 'cupones/:categoria', component: InfoCuponesComponent},
+  { path: 'trabajos/:categoria', component: InfoTrabajosComponent},
   { path: 'trabajos', component: TarjetaTrabComponent},
   { path: 'cupones', component: TarjetaCuponComponent},
   { path: 'trabajos', component: TarjetaTrabComponent},
