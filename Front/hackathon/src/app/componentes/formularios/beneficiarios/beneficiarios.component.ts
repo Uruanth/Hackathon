@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
 import { CrearService } from 'src/app/servicios/crear.service';
 
 @Component({
@@ -37,7 +36,7 @@ crearBene(){
     "usoEstimado": this.usoEstimado
   }
 
-  this.crear.codigoRespueta(this.urlapi, body).subscribe(data => {
+  this.crear.codigoRespuesta(this.urlapi, body).subscribe(data => {
     this.estado = data.status;
   });
   
