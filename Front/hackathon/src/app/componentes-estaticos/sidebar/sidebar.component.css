@@ -99,7 +99,7 @@
   .lh-tight { line-height: 1.25; }
   
   
-  @media (max-width: 1150px) {
+  @media (max-width: 650px) {
     .sideC {
       display: none;
     }

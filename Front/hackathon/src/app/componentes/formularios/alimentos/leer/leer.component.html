@@ -6,7 +6,8 @@
                 <label for="" class="col-form-label">Codigo inventario</label>
             </div>
             <div class="col-auto">
-                <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline"
+                [(ngModel)]="codigo">
             </div>
             <div class="col-auto">
                 <span id="passwordHelpInline" class="form-text">
@@ -15,7 +16,11 @@
             </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto mt-3">
-            <button class="btn btn-primary" type="button">Button</button>
+            <button class="btn btn-primary" type="button" (click)="buscar()">Button</button>
+           
+        </div>
+        <div class="row">
+            <app-tarjet-alim *ngIf="flag == true"> [contenido] = "lista"></app-tarjet-alim>
         </div>
     </div>
 </div>

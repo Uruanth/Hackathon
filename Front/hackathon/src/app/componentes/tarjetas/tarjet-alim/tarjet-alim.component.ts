@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LeerService } from 'src/app/servicios/leer.service';
 
@@ -9,12 +9,14 @@ import { LeerService } from 'src/app/servicios/leer.service';
 })
 export class TarjetAlimComponent {
 
+  @Input() contenido: any = [];
+
+
   urlbase = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/alimentos";
 
 
   lista: any = [];
 
-  contenido: any = [];
 
   codigoRespuesta!: number;
 
