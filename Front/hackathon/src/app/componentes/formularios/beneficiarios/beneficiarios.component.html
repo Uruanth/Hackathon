@@ -7,7 +7,7 @@
                 <label for="" class="col-form-label">Nombre</label>
             </div>
             <div class="col">
-                <input type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="nombre" type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -21,7 +21,7 @@
                 <label for="" class="col-form-label">Número de identificación</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="codigo" type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -35,7 +35,7 @@
                 <label for="inputPassword6" class="col-form-label">Número de personas a cargo</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="personasACargo" type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -49,7 +49,7 @@
                 <label for="inputPassword6" class="col-form-label">Edad</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="edades" type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -63,7 +63,7 @@
                 <label for="inputPassword6" class="col-form-label">Por cuanto tiempo cree que necesitara ayuda</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="usoEstimado" type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -77,7 +77,7 @@
                 <label for="inputPassword6" class="col-form-label">Motivo de por la cual necesitan ayuda</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="motivoSolicitud" type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -91,7 +91,7 @@
                 <label for="inputPassword6" class="col-form-label">Requerimientos nutricionales</label>
             </div>
             <div class="col">
-                <input type="number" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input [(ngModel)]="requisitos" type="text" id="" class="form-control" aria-describedby="passwordHelpInline">
             </div>
             <div class="col">
                 <span id="passwordHelpInline" class="form-text">
@@ -102,7 +102,8 @@
 
        
         <div class="d-grid gap-2 col-6 mx-auto mt-3">
-            <button class="btn btn-primary" type="button">Button</button>
+            <button class="btn btn-primary" type="button" (click)="crearBene()">Button</button>
+            <p color="green" *ngIf="estado == 200" >Beneficiario creado</p>
         </div>
     </div>
 

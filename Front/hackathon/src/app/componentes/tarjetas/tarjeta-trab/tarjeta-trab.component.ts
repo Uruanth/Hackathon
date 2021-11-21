@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LeerService } from 'src/app/servicios/leer.service';
 
@@ -11,7 +11,7 @@ export class TarjetaTrabComponent {
 
   urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/trabajos"
 
-  contenido: any = [];
+  @Input() contenido: any = [];
 
   constructor(private read: LeerService, private router: Router) {
     this.read.leerTodos(this.urlapi).subscribe(data => {

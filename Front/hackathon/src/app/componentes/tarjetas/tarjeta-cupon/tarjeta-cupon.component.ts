@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LeerService } from 'src/app/servicios/leer.service';
 
@@ -11,7 +11,7 @@ export class TarjetaCuponComponent {
 
   urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/cupones"
 
-  contenido: any = [];
+  @Input() contenido: any = [];
 
   codigoRespuesta!: number;
 

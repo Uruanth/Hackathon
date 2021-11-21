@@ -5,7 +5,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
-//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -83,7 +82,6 @@ import { TarjetAlimComponent } from './componentes/tarjetas/tarjet-alim/tarjet-a
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    //NgbModule,
     RouterModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
