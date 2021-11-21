@@ -8,7 +8,7 @@
             </div>
             <div class="col-6">
                 <input type="text" class="form-control" aria-describedby="passwordHelpInline"
-                    placeholder="Ingrese el nombre aqui...">
+                    placeholder="Ingrese el nombre aqui..." [(ngModel)]="nombre">
             </div>
         </div>
 
@@ -21,13 +21,15 @@
                 <label for="" class="col-form-label">Desde</label>
             </div>
             <div class="col-auto">
-                <input type="time" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="time" id="" class="form-control" aria-describedby="passwordHelpInline"
+                [(ngModel)]="desde" >
             </div>
             <div class="col-auto">
                 <label for="" class="col-form-label">Hasta</label>
             </div>
             <div class="col-auto">
-                <input type="time" id="" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="time" id="" class="form-control" aria-describedby="passwordHelpInline"
+                    [(ngModel)]="hasta">
             </div>
         </div>
 
@@ -52,7 +54,7 @@
 
         <div class="row" *ngIf="mostrar2 === 2">
             <div col-8 text-center>
-                <iframe
+                <iframe [(ngModel)]="mapa"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789655790045!3d4.64862594373708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637246431410!5m2!1ses!2sco"
                     width="400" height="300" style="border:0;" loading="lazy" class="mx-auto d-block">
                 </iframe>
@@ -64,25 +66,23 @@
             </div>
             <div class="col-6">
                 <input type="text" id="entrada" class="form-control" aria-describedby="passwordHelpInline"
-                    placeholder="Ingrese su dirección">
+                    placeholder="Ingrese su dirección" [(ngModel)]="direccion">
             </div>
         </div>
         <div class="d-grid gap-2 col-2 mx-auto mt-3">
-            <button class="btn btn-success" type="button" (click)="comparar()">Agregar Información</button>
+            <button class="btn btn-success" type="button" (click)="crearProv()">Agregar Información</button>
         </div>
 
         <!-- Alertas -->
-        <div *ngIf="correcto==1" class="alert alert-success 
+        <div class="row justify-content-center mt-3">
+            <div *ngIf="correcto==1" class="col-4 alert-success 
         animate__animated animate__bounceInLeft" role="alert">
-            Proveedor creado con exito
-        </div>
-        <div *ngIf="correcto==2" class="alert alert-danger 
+                Proveedor creado con exito
+            </div>
+            <div *ngIf="correcto==2" class="col-4 alert alert-danger 
         animate__animated animate__bounceInLeft" role="alert">
-            Error 404 Not found
-        </div>
-        <div *ngIf="correcto==3" class="alert alert-danger 
-        animate__animated animate__bounceInLeft" role="alert">
-            Error 500 Internal Server Error
+                Error al crear el proveedor
+            </div>
         </div>
     </div>
 </div>

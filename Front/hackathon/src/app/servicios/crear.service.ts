@@ -14,7 +14,8 @@ export class CrearService {
     return this.http.post(`${urlapi}`,
       body);
   }
-  codigoRespueta(urlapi: string, body: any) {
+  
+  codigoRespuesta(urlapi: string, body: any) {
 
     return this.http.post(`${urlapi}`,
       body, {observe: 'response'});

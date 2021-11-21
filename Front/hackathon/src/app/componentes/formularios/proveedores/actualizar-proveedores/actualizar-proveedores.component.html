@@ -1,12 +1,13 @@
-<div class="container position-absolute top-50 start-50 translate-middle">
+<div class="contenedor my-5">
+    <div class="align-items-center pt-5">
     <div>
         <h1>Actualizar datos del proveedor</h1>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2">
             <div class="col-auto">
                 <label class="col-form-label">Ingrese el nombre que desea buscar</label>
             </div>
-            <div class="col-auto" id="entrada">
+            <div class="col-6">
                 <input type="text" class="form-control" aria-describedby="passwordHelpInline"
                     placeholder="Ingrese el nombre aqui..." [(ngModel)]="nombre">                    
             </div>
@@ -17,11 +18,11 @@
                 aria-describedby="passwordHelpInline" [(ngModel)]="nombre">
         </div>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2">
             <div class="col-auto">
                 <label for="" class="col-form-label">Nuevo horario disponible</label>
             </div>
-            <div class="col-4">
+            <div class="col-auto">
                 <input type="date" id="" class="form-control" [(ngModel)]="horario" aria-describedby="passwordHelpInline">
             </div>
         </div>
@@ -40,20 +41,17 @@
             </div>
         </div>
 
-        <div class="row align-items-center mt-2">
+        <div class="row justify-content-center mt-2">
             <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio  </label>
+                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
                 <select [(ngModel)]="opcionSelect" (change)="capturar()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Si</option>
                     <option value="2">No</option>
                 </select>
             </div>
-        </div>
-
-        <div class="row align-items-center mt-2">
             <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección  </label>
+                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección </label>
                 <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Escribir la dirección</option>
@@ -68,7 +66,7 @@
                 width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" class="position-relative">
             </iframe>
         </div>
-        <div class="row align-items-center mt-2" *ngIf="envio == 'No'">
+        <div class="row justify-content-center mt-2" *ngIf="envio == 'No'">
             <div class="col-auto">
                 <label for="" class="col-form-label">Ingrese la dirección</label>
             </div>
