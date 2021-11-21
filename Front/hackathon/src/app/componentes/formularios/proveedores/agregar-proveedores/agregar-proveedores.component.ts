@@ -23,15 +23,7 @@ export class AgregarProveedoresComponent {
   hasta: string ="";
   mapa: string ="";
   direccion: string ="";
-  ubicacion: String = "";
-  body = {
-    "abiertoDesde": this.desde,
-    "abiertoHasta": this.hasta,
-    "codigo": "string",
-    "disponibilidadEnvio":this.envio,
-    "nombre": this.nombre,
-    "ubicacion": this.ubicacion,
-  };
+  ubicacion!: string;
 
   constructor(private toastr: ToastrService, private router: Router,
     private read: CrearService) { }
@@ -82,11 +74,13 @@ export class AgregarProveedoresComponent {
     console.log(body)
   
     this.read.codigoRespuesta(this.urlapi, body).subscribe(data => {
+      this.codigoRespuesta = data.status;
       console.log(data.status)
+      this.comparar();
     });
-    this.comparar();
-  
+    console.log(this.codigoRespuesta);
   }
+
   comparar() {
     if (this.codigoRespuesta === 200) {
       this.correcto = 1;
