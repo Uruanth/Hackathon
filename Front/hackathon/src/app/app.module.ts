@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-//import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
 //import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 import { AppComponent } from './app.component';
@@ -83,8 +84,9 @@ import { InfoTrabajosComponent } from './componentes/información/info-trabajos/
     //NgbModule,
     RouterModule,
     AppRoutingModule,
-    //ToastrModule.forRoot(),
+    ToastrModule.forRoot(),
     DataTablesModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
