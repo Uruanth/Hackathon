@@ -19,7 +19,6 @@ export class TarjetaProvComponent {
   constructor(private read: LeerService, private router: Router) {
     this.read.codigoRespuesta(this.urlapi).subscribe(data => {
       this.codigoRespuesta = data.status;
-      console.log(this.codigoRespuesta);
       if (data.status == 200) {
         this.obtenerDatos();
       }

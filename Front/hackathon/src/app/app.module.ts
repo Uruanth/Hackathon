@@ -32,7 +32,6 @@ import { AgregarProveedoresComponent } from './componentes/formularios/proveedor
 import { BorrarProveedoresComponent } from './componentes/formularios/proveedores/borrar-proveedores/borrar-proveedores.component';
 import { InfoProveedoresComponent } from './componentes/información/info-proveedores/info-proveedores.component';
 import { InfoBeneficiariosComponent } from './componentes/información/info-beneficiarios/info-beneficiarios.component';
-import { InfoDonacionComponent } from './componentes/información/info-donacion/info-donacion.component';
 import { LandingComponent } from './componentes/landing/landing.component';
 import { BuscarComponent } from './componentes/buscar/buscar.component';
 import { InfoCuponesComponent } from './componentes/información/info-cupones/info-cupones.component';
@@ -67,7 +66,6 @@ import { TarjetAlimComponent } from './componentes/tarjetas/tarjet-alim/tarjet-a
     BorrarProveedoresComponent,
     InfoProveedoresComponent,
     InfoBeneficiariosComponent,
-    InfoDonacionComponent,
     LandingComponent,
     BuscarComponent,
     InfoCuponesComponent,

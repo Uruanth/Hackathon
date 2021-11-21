@@ -1,7 +1,7 @@
 <h1>Info beneficiarios</h1>
 <div class="row align-items-center">
-    <img src="assets/imagenes/niños pobres.jpg" alt="" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-    <div class="col-md-6 offset-md-0 centro">
+    <img src="assets/imagenes/niños pobres.jpg" class="col-2" alt="...">
+    <div class="col-auto centro">
         <!-- Tomado de wikipedia-->
         Un beneficiario en el sentido más amplio es una persona física u otra entidad legal que recibe dinero u otros
         beneficios de un benefactor. Por ejemplo, el beneficiario de una póliza de seguro de vida es la persona que
@@ -11,11 +11,11 @@
         Datos del beneficiario(s):<br>
         <div *ngFor="let b of beneficiario">
             Nombre: {{ b.nombre }}<br>
-            Nombre: {{ b.personasACargo }}<br>
-            Nombre: {{ b.edades }}<br>
-            Nombre: {{ b.requisitosNutricionales }}<br>
-            Nombre: {{ b.motivoSolicitud }}<br>
-            Nombre: {{ b.usoEstimado }}<br>
+            Edad: {{ b.edades }}<br>
+            Personas a cargo: {{ b.personasACargo }}<br>
+            Requisitos nutricionales: {{ b.requisitosNutricionales }}<br>
+            Motivo de la solicitud: {{ b.motivoSolicitud }}<br>
+            Uso estimado: {{ b.usoEstimado }}<br>
 
         </div>
 
