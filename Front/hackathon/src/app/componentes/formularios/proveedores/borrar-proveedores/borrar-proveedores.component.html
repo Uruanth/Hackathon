@@ -3,40 +3,41 @@
         <h1>Borrar datos del proveedor</h1>
 
         <div class="row justify-content-center mt-2">
-            <div class="col-auto">
-                <label class="col-form-label">Ingrese el nombre del proveedor</label>
+            <div class="col-sm-7 col-md-5 col-lg-5 col-xl-4 text-center">
+                <label class="col-form-label">Ingrese el nombre del proveedor que desea borrar</label>
             </div>
-            <div class="col-4" id="entrada">
+            <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
                 <input type="text" class="form-control" aria-describedby="passwordHelpInline"
                     placeholder="Ingrese el nombre aqui..." [(ngModel)]="nombre">
-            </div>          
+            </div>
         </div>
         <div class="row justify-content-center m-2">
-        <div class="d-grid gap-2 col-1 m-2">
-            <button class="btn btn-primary" type="button" (click)="buscar()">Buscar</button>
-        </div>
+            <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+                <button class="btn btn-primary" type="button" (click)="buscar()">Buscar</button>
+            </div>
         </div>
         <div class="row justify-content-center mt-2">
-            <div class="col-auto">
+            <div class="col-sm-7 col-md-5 col-lg-5 col-xl-3 text-center">
                 <label class="col-form-label">Nombre del proveedor a borrar</label>
             </div>
-            <div class="col-4" id="entrada">
-                <input type="text" class="form-control" aria-describedby="passwordHelpInline"
-                    disabled="disabled" [value]="buscado">
+            <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                <input type="text" class="form-control" aria-describedby="passwordHelpInline" disabled="disabled"
+                    [(ngModel)]="buscado">
             </div>
         </div>
-
-        <div class="d-grid col-2 mx-auto m-3">
-                <button class="btn btn-danger" type="button">Borrar Información</button>                
+        <div class="row justify-content-center mt-2">
+            <div class="col-7 col-sm-6 col-md-4 col-lg-3 col-xl-3 mx-auto">
+                <button class="btn btn-danger" type="button">Borrar Información</button>
+            </div>
         </div>
-
         <div *ngIf="correcto==1" class="alert alert-success 
                         animate__animated animate__bounceInLeft" role="alert">
-                Proveedor borrado correctamente
-            </div>
-            <div *ngIf="correcto==0" class="alert alert-danger 
+            Proveedor borrado correctamente
+        </div>
+        <div *ngIf="correcto==0" class="alert alert-danger 
                         animate__animated animate__bounceInLeft" role="alert">
-                No se pudo borrar el proveedor
-            </div>
+            No se pudo borrar el proveedor
+        </div>
     </div>
 </div>
+<br>
