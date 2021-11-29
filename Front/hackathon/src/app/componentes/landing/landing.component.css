@@ -1,11 +1,9 @@
 
-.row{
-  margin-top: 200px;
-}
 
 h1 {
   color: white;
   font-size: 10vw;
+  text-shadow: 5px 3px #333;
 }
 .title-initial-page{
   position: absolute;
@@ -18,7 +16,4 @@ h1 {
   height: 400px;
   position: fixed;
   padding-right: 50px
-}
-body{
-  background: none !important
 }
