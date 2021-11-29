@@ -1,10 +1,16 @@
 .contenedor {
     
-    width: 95%;
+    width: 90%;
     /* color: rgba(30, 151, 36, 0.555); */
     margin-top: 10px;
     margin-left: 15px;
     
+  }
+
+  .btn{
+    background-color: darkviolet;
+    opacity: 0.8;
+    color: antiquewhite;
   }
   
   h1 {text-align: center}
