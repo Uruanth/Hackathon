@@ -1,18 +1,15 @@
 <app-navbar></app-navbar>
-
-
-<div class="row ">
-    <div class="col ">
+<div class="row">
+    <div class="col-1">
         <app-sidebar></app-sidebar>
     </div>
     <div class="col-11">
         <router-outlet></router-outlet>
     </div>
+</div>
 
-    <div class="container row fixed-bottom">
-
-        <div class="row">
-            <app-footer></app-footer>
-        </div>
+<div class="row position-absolute-bottom mt-3">
+    <div class="col">
+        <app-footer></app-footer>
     </div>
 </div>

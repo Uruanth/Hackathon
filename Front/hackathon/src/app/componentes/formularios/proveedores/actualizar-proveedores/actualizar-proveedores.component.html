@@ -1,84 +1,89 @@
 <div class="contenedor my-5">
     <div class="align-items-center pt-5">
-    <div>
-        <h1>Actualizar datos del proveedor</h1>
+        <div>
+            <h1>Actualizar datos del proveedor</h1>
 
-        <div class="row justify-content-center mt-2">
-            <div class="col-auto">
-                <label class="col-form-label">Ingrese el nombre que desea buscar</label>
+            <div class="row justify-content-center mt-2">
+                <div class="col-sm-7 col-md-5 col-lg-5 col-xl-3 text-center">
+                    <label class="col-form-label">Ingrese el nombre que desea actualizar</label>
+                </div>
+                <div class="col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                    <input type="text" class="form-control" aria-describedby="passwordHelpInline"
+                        placeholder="Ingrese el nombre aqui..." [(ngModel)]="nombre">
+                </div>
+                <div class="col-sm-3 col-md-2 col-lg-1 col-xl-1">
+                    <button class="btn btn-primary" type="button" (click)="buscar">Buscar</button>
+                </div>
+                <div class="col-sm-10 col-md-8 col-lg-7 col-xl-5" *ngIf="correcto == 2">
+                    <input type="text" id="" class="form-control mt-3" *ngIf="" aria-describedby="passwordHelpInline"
+                        [(ngModel)]="nombre">
+                </div>
             </div>
-            <div class="col-6">
-                <input type="text" class="form-control" aria-describedby="passwordHelpInline"
-                    placeholder="Ingrese el nombre aqui..." [(ngModel)]="nombre">                    
-            </div>
-            <div class="d-grid col-2 mx-auto">
-                <button class="btn btn-primary" type="button" (click)="buscar">Buscar</button>
-            </div>            
-            <input type="text" id="" class="form-control mt-3" *ngIf=""
-                aria-describedby="passwordHelpInline" [(ngModel)]="nombre">
-        </div>
 
-        <div class="row justify-content-center mt-2">
-            <div class="col-auto">
-                <label for="" class="col-form-label">Nuevo horario disponible</label>
+            <div class="row justify-content-center mt-2">
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 col-xl-auto text-center">
+                    <label for="" class="col-form-label">Nuevo horario disponible</label>
+                </div>
+                <div class="col-3 col-sm-1 col-md-1 col-lg-1 col-xl-auto">
+                    <label for="" class="col-form-label">Desde</label>
+                </div>
+                <div class="col-8 col-sm-5 col-md-5 col-lg-3 col-xl-auto">
+                    <input type="datetime-local" id="" class="form-control" [(ngModel)]="desde"
+                        aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-3 col-sm-1 col-md-2 col-lg-1 col-xl-auto">
+                    <label for="" class="col-form-label">Hasta</label>
+                </div>
+                <div class="col-8 col-sm-5 col-md-5 col-lg-3 col-xl-auto">
+                    <input type="datetime-local" id="" class="form-control" [(ngModel)]="hasta"
+                        aria-describedby="passwordHelpInline">
+                </div>
             </div>
-            <div class="col-auto">
-                <input type="date" id="" class="form-control" [(ngModel)]="horario" aria-describedby="passwordHelpInline">
-            </div>
-        </div>
-        <div class="row align-items-center mt-2">
-            <div class="col-auto">
-                <label for="" class="col-form-label">Desde</label>
-            </div>
-            <div class="col-auto">
-                <input type="time" id="" class="form-control" [(ngModel)]="desde" aria-describedby="passwordHelpInline">
-            </div>
-            <div class="col-auto">
-                <label for="" class="col-form-label">Hasta</label>
-            </div>
-            <div class="col-auto">
-                <input type="time" id="" class="form-control" [(ngModel)]="hasta" aria-describedby="passwordHelpInline">
-            </div>
-        </div>
 
-        <div class="row justify-content-center mt-2">
-            <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
-                <select [(ngModel)]="opcionSelect" (change)="capturar()">
-                    <option value="0">Seleccione una opción</option>
-                    <option value="1">Si</option>
-                    <option value="2">No</option>
-                </select>
+            <div class="row justify-content-center mt-2">
+                <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-auto text-center">
+                    <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
+                    <select [(ngModel)]="opcionSelect" (change)="capturar()">
+                        <option value="0">Seleccione una opción</option>
+                        <option value="1">Si</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+                <div class="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-auto text-center">
+                    <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección
+                    </label>
+                    <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
+                        <option value="0">Seleccione una opción</option>
+                        <option value="1">Escribir la dirección</option>
+                        <option value="2">Por geolocalización</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-auto">
-                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección </label>
-                <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
-                    <option value="0">Seleccione una opción</option>
-                    <option value="1">Escribir la dirección</option>
-                    <option value="2">Por geolocalización</option>
-                </select>
-            </div>
-        </div>
 
-        <div class="row g-3 align-items-center mt-2">
-            <iframe *ngIf="envio == 'Si'"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789655790045!3d4.64862594373708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637246431410!5m2!1ses!2sco"
-                width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" class="position-relative">
-            </iframe>
-        </div>
-        <div class="row justify-content-center mt-2" *ngIf="envio == 'No'">
-            <div class="col-auto">
-                <label for="" class="col-form-label">Ingrese la dirección</label>
+            <div class="row g-3 align-items-center mt-2">
+                <div class="col-sm-10 col-md-8 col-lg-5 col-xl-auto">
+                    <iframe *ngIf="mostrar == 2"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789655790045!3d4.64862594373708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1637246431410!5m2!1ses!2sco"
+                        width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"
+                        class="position-relative">
+                    </iframe>
+                </div>
             </div>
-            <div class="col-auto">
-                <input type="text" id="entrada" class="form-control" aria-describedby="passwordHelpInline"
-                    placeholder="Ingrese su dirección">
+            <div class="row justify-content-center mt-2" *ngIf="mostrar == 1">
+                <div class="col-sm-7 col-md-3 col-lg-3 col-xl-auto">
+                    <label for="" class="col-form-label">Ingrese la dirección</label>
+                </div>
+                <div class="col-sm-8 col-md-7 col-lg-7 col-xl-auto">
+                    <input type="text" id="entrada" class="form-control" aria-describedby="passwordHelpInline"
+                        placeholder="Ingrese su dirección">
+                </div>
             </div>
-        </div>
-        <div class="d-grid col-5 mx-auto">
-                <button class="btn btn-warning" type="button" (click)="updateDato()">Actualizar Información</button>
-        </div>
-        <div *ngIf="correcto==1" class="alert alert-success 
+            <div class="row justify-content-center mt-2">
+                <div class="d-grid col-9 col-sm-6 col-md-4 col-lg-3 col-xl-3 mx-auto">
+                    <button class="btn btn-warning" type="button" (click)="updateDato()">Actualizar Información</button>
+                </div>
+            </div>
+            <div *ngIf="correcto==1" class="alert alert-success 
                         animate__animated animate__bounceInLeft" role="alert">
                 Usuario actualizado correctamente
             </div>
@@ -86,6 +91,6 @@
                         animate__animated animate__bounceInLeft" role="alert">
                 No se pudo actualizar el usuario
             </div>
+        </div>
     </div>
 </div>
-

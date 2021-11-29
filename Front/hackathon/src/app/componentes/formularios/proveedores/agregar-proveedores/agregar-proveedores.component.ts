@@ -108,7 +108,7 @@ export class AgregarProveedoresComponent {
         });
         break;
       case 2:
-        this.toastr.error('<span><i class="fas fa-times"></i></span> <b>Proveedor creado con exito</b>', '', {
+        this.toastr.error('<span><i class="fas fa-times"></i></span><b>Error al crear el proveedor</b>', '', {
           disableTimeOut: false,
           enableHtml: true,
           closeButton: true,

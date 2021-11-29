@@ -24,7 +24,7 @@ public class ProveedorController {
      * @param nombre
      * @return List of suppliers and HTTP response
      */
-    @GetMapping("/proveedors")
+    @GetMapping("/proveedores")
     public ResponseEntity<List<Proveedor>> getAllProveedors(@RequestParam(required = false) String nombre) {
     	
         try {
