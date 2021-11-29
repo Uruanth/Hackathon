@@ -1,7 +1,7 @@
 package edu.unelbosque.hackathon.Controller;
 
 import edu.unelbosque.hackathon.Models.Proveedor;
-import edu.unelbosque.hackathon.Repository.PorveedorRepository;
+import edu.unelbosque.hackathon.Repository.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,14 @@ import java.util.Optional;
 public class ProveedorController {
     
     @Autowired
-    PorveedorRepository proveedorRepository;
+    ProveedorRepository proveedorRepository;
     
     /**
      * This method access to all the suppliers in the database 
      * @param nombre
      * @return List of suppliers and HTTP response
      */
-    @GetMapping("/proveedores")
+    @GetMapping("/proveedor")
     public ResponseEntity<List<Proveedor>> getAllProveedors(@RequestParam(required = false) String nombre) {
     	
         try {
@@ -84,17 +84,17 @@ public class ProveedorController {
 
 
     }
-
+    
     /**
      * This method find a supplier by code in the database by code
-     * @param codigo
+     * @param nombre
      * @return List of suppliers and HTTP response
      */
-    @GetMapping("/proveedor/{codigo}")
-    public ResponseEntity<List<Proveedor>> getProveedorByCode(@PathVariable("codigo") String codigo) {
+    @GetMapping("/proveedor/{nombre}")
+    public ResponseEntity<List<Proveedor>> getProveedorByNombre(@PathVariable("nombre") String nombre) {
 
         try {
-            List<Proveedor> proveedor = proveedorRepository.findByCodigo(codigo);
+            List<Proveedor> proveedor = proveedorRepository.findByNombre(nombre);
 
             if (proveedor.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -108,17 +108,17 @@ public class ProveedorController {
         }
 
     }
-
+    
     /**
      * This method update the supplier by code in the database
-     * @param codigo
+     * @param nombre
      * @param proveedor
      * @return HTTP response
      */
-    @PutMapping("/proveedor/{codigo}")
-    public ResponseEntity<Proveedor> updateProveedor(@PathVariable("codigo") String codigo, @RequestBody Proveedor proveedor) {
+    @PutMapping("/proveedor/{nombre}")
+    public ResponseEntity<Proveedor> updateProveedorNombre(@PathVariable("nombre") String nombre, @RequestBody Proveedor proveedor) {
 
-        List<Proveedor> proveedorList = proveedorRepository.findByCodigo(codigo);
+        List<Proveedor> proveedorList = proveedorRepository.findByCodigo(nombre);
 
         Proveedor proveedorD = proveedorList.get(0);
 
@@ -129,12 +129,10 @@ public class ProveedorController {
             Proveedor proAux = proveedorData.get();
 
             proAux.setNombre(proveedor.getNombre());
-            proAux.setCodigo(proveedor.getCodigo());
             proAux.setUbicacion(proveedor.getUbicacion());
             proAux.setDisponibilidadEnvio(proveedor.getDisponibilidadEnvio());
             proAux.setAbiertoDesde(proveedor.getAbiertoDesde());
             proAux.setAbiertoHasta(proveedor.getAbiertoHasta());
-
 
             return new ResponseEntity<>(proveedorRepository.save(proAux), HttpStatus.OK);
         } else {
@@ -142,17 +140,17 @@ public class ProveedorController {
         }
 
     }
-
+    
     /**
      * This method delete the supplier by code in the database
-     * @param codigo
+     * @param nombre
      * @return HTTP response
      */
-    @DeleteMapping("/proveedor/{codigo}")
-    public ResponseEntity<HttpStatus> deleteProveedor(@PathVariable("codigo") String codigo) {
+    @DeleteMapping("/proveedor/{nombre}")
+    public ResponseEntity<HttpStatus> deleteProveedorNombre(@PathVariable("nombre") String nombre) {
         try {
 
-            proveedorRepository.deleteByCodigo(codigo);
+            proveedorRepository.deleteByNombre(nombre);
             return new ResponseEntity<>(HttpStatus.OK);
 
         } catch (Exception e) {
