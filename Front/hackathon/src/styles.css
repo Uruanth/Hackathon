@@ -1,3 +1,4 @@
 body{
-    background: whitesmoke;
+    background: rgb(181, 136, 76, 0.2);
+    user-select: none;
 }
