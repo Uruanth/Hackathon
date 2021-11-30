@@ -80,11 +80,7 @@ export class AgregarProveedoresComponent {
     if (this.codigoRespuesta === 200) {
       this.correcto = 1;
       this.showNotification('top', 'right', 1);
-    } else if (this.codigoRespuesta === 404) {
-      this.correcto = 2;
-      this.showNotification('top', 'right', 2);
-    } else if (this.codigoRespuesta === 500) {
-      this.correcto = 3;
+    } else{
       this.showNotification('top', 'right', 2);
     }
     console.log(this.codigoRespuesta)

@@ -9,6 +9,10 @@
   color: white;
 }
 
+.label{
+margin: 10px;
+}
+
 h1 {text-align: center}
 
 @media (max-width: 700px) {

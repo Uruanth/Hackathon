@@ -1,7 +1,7 @@
 <div class="contenedor my-5">
     <div class="align-items-center pt-5">
-
-        <h1>Actualizar datos del proveedor</h1>
+        <h1><img src="https://cdn-icons.flaticon.com/png/512/4990/premium/4990857.png?token=exp=1638296881~hmac=f149f685e1db331a796f6bb2f974b5e8"
+            alt="" height="40" width="40">Actualizar datos del proveedor</h1>
 
         <div class="row justify-content-center mt-2">
             <div class="col-sm-7 col-md-5 col-lg-5 col-xl-4 text-center">
@@ -15,13 +15,6 @@
                 <button class="btn" type="button" (click)="buscar()">Buscar</button>
             </div>
         </div>
-        <div class="row justify-content-center m-2">
-            <div *ngIf="mostrar ==1" class="col-sm-8 col-md-6 col-lg-6 col-xl-6 alert-success 
-        animate__animated animate__bounceInLeft" role="alert">
-                El proveedor {{nombre}} si se encuentra registrado, ingrese los demas datos
-                por favor
-            </div>
-
         <div class="row justify-content-center mt-2">
             <div class="col-12 col-sm-12 col-md-5 col-lg-3 col-xl-auto text-center">
                 <label for="" class="col-form-label">Nuevo horario disponible</label>
@@ -44,7 +37,7 @@
 
         <div class="row justify-content-center mt-2">
             <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-auto text-center">
-                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
+                <label class="col-form-label label" for="inputGroupSelect01">Posibilidad de envio  </label>
                 <select [(ngModel)]="opcionSelect" (change)="capturar()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Si</option>
@@ -52,7 +45,7 @@
                 </select>
             </div>
             <div class="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-auto text-center">
-                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección
+                <label class="col-form-label label" for="inputGroupSelect01">Seleccione como ingresar su dirección
                 </label>
                 <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
                     <option value="0">Seleccione una opción</option>

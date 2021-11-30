@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" routerLink="home">Inicio</a>
+        <a class="navbar-brand" routerLink="home">
+            <img src="https://cdn-icons.flaticon.com/png/512/2609/premium/2609175.png?token=exp=1638291633~hmac=9ca4ef0f4d1b126dd46551e73bc01bdc"
+                alt="" height="20" width="20"> Inicio</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -12,12 +14,16 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link b-3" routerLink="buscar">Buscar</a></li>
+                <li class="nav-item"><a class="nav-link b-3 " routerLink="buscar">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6244/6244198.png" alt="" height="25"
+                            width="25"> Buscar</a></li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Donadores
+                <li class="nav-item dropdown" onclick="submit()">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2871/2871441.png" alt="" height="25"
+                            width="25">
+                        Proveedores
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" routerLink="proveedores/agregar">Inscribirse</a></li>
@@ -36,9 +42,11 @@
                     </ul>
                 </li> -->
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <li class="nav-item dropdown" onclick="submit()">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4441/4441664.png" alt="" height="25"
+                            width="25">
                         Beneficiarios
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,8 +54,14 @@
                     </ul>
                 </li>
 
-                <li class="nav-item"><a class="nav-link b-3" routerLink="cupones">Cupones</a></li>
-                <li class="nav-item"><a class="nav-link b-3" routerLink="trabajos">Trabajos</a></li>
+                <li class="nav-item"><a class="nav-link b-3" routerLink="cupones">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3126/3126552.png" alt="" height="25"
+                            width="25">
+                        Cupones</a>
+                </li>
+                <li class="nav-item"><a class="nav-link b-3" routerLink="trabajos">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2593/2593066.png" alt="" height="25"
+                            width="25">Trabajos</a></li>
 
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

@@ -8,11 +8,11 @@ export class BorrarService {
 
   constructor(private http: HttpClient) { }
 
-  borrar(urlapi: string, codigo: string) {
-    return this.http.delete(`${urlapi}${codigo}`);
+  borrar(urlapi: string, nombre: string) {
+    return this.http.delete(`${urlapi}${nombre}`);
   }
   
-  codigoRespuesta(urlapi: string, codigo: string) {
-    return this.http.delete(`${urlapi}${codigo}`, {observe: 'response'});
+  codigoRespuesta(urlapi: string, nombre: string) {
+    return this.http.delete(`${urlapi}${nombre}`, {observe: 'response'});
   }
 }

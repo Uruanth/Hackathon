@@ -73,6 +73,7 @@ export class ActualizarProveedoresComponent {
       if (this.codigoRespuesta == 200){
         this.mostrar = 1;
         this.buscarNombre();
+        this.showNotification('top', 'right',2);
 
       } else{
         
@@ -127,7 +128,7 @@ export class ActualizarProveedoresComponent {
   showNotification(from:string, align:string, type:number) {
     switch (type) {
       case 1:
-        this.toastr.error('<span><i class="fas fa-times"></i> </span><b>Proveedor no se encuentra registrado</b>', '', {
+        this.toastr.error('<span><i class="fas fa-times"></i> </span><b>El proveedor no se encuentra registrado en nuestras base de datos</b>', '', {
           disableTimeOut: false,
           enableHtml: true,
           closeButton: true,
@@ -136,6 +137,15 @@ export class ActualizarProveedoresComponent {
         });
         break;
         case 2:
+        this.toastr.success('<span><i class="fas fa-check"></i></span><b>Puede continuar con el proceso de actualización de datos</b>', '', {
+          disableTimeOut: false,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: 'alert alert-success alert-with-icon',
+          positionClass: 'toast-' + from + '-' + align
+        });
+        break;
+        case 3:
         this.toastr.success('<span><i class="fas fa-check"></i> </span><b>Proveedor actualizado con exito</b>', '', {
           disableTimeOut: false,
           closeButton: true,
@@ -144,7 +154,7 @@ export class ActualizarProveedoresComponent {
           positionClass: 'toast-' + from + '-' + align
         });
         break;
-      case 3:
+      case 4:
         this.toastr.error('<span><i class="fas fa-times"></i> </span><b>Error al actualizar el proveedor</b>', '', {
           disableTimeOut: false,
           enableHtml: true,

@@ -1,6 +1,7 @@
 <div class="contenedor my-5">
-    <div class="align-items-center pt-5">
-        <h1>Registros de proveedor</h1>
+    <div class="align-items-center pt-5">            
+        <h1><img src="https://cdn-icons-png.flaticon.com/512/3456/3456420.png"
+            alt="" height="40" width="40">Registros de proveedor</h1>
 
         <div class="row justify-content-center mt-2">
             <div class="col-sm-7 col-md-5 col-lg-5 col-xl-3 text-center">
@@ -35,7 +36,7 @@
 
         <div class="row justify-content-center mt-2">
             <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-auto text-center">
-                <label class="col-form-label" for="inputGroupSelect01">Posibilidad de envio </label>
+                <label class="col-form-label label" for="inputGroupSelect01">Posibilidad de envio </label>
                 <select [(ngModel)]="opcionSelect" (change)="capturar()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Si</option>
@@ -43,7 +44,7 @@
                 </select>
             </div>
             <div class="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-auto text-center">
-                <label class="col-form-label" for="inputGroupSelect01">Seleccione como ingresar su dirección </label>
+                <label class="col-form-label label" for="inputGroupSelect01">Seleccione como ingresar su dirección </label>
                 <select [(ngModel)]="opcionSelect2" (change)="capturar2()">
                     <option value="0">Seleccione una opción</option>
                     <option value="1">Escribir la dirección</option>
@@ -72,18 +73,6 @@
         <div class="row justify-content-center mt-3">
             <div class="d-grid col-9 col-sm-6 col-md-4 col-lg-3 col-xl-3 mx-auto">
                 <button class="btn" type="button" (click)="crearProv()">Agregar Información</button>
-            </div>
-        </div>
-
-        <!-- Alertas -->
-        <div class="row justify-content-center mt-3">
-            <div *ngIf="correcto==1" class="col-4 alert-success 
-        animate__animated animate__bounceInLeft" role="alert">
-                Proveedor creado con exito
-            </div>
-            <div *ngIf="correcto==2" class="col-4 alert alert-danger 
-        animate__animated animate__bounceInLeft" role="alert">
-                Error al crear el proveedor
             </div>
         </div>
     </div>

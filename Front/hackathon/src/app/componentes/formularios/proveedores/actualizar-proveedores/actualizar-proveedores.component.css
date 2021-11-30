@@ -15,6 +15,15 @@
   color: white;
 }
 
+.label{
+  margin: 10px;
+}
+
+.toast-success{background-color:#a3eca3!important;}
+.toast-error{background-color:#f59a95!important;}
+.toast-info{background-color:#2F96B4!important;}
+.toast-warning{background-color:#F89406!important;}
+
 h1 {text-align: center}
 
 @media (max-width: 700px) {

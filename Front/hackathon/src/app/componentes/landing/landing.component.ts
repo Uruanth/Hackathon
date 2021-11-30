@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavbarComponent } from 'src/app/componentes-estaticos/navbar/navbar.component';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent{
 
-  constructor() { }
+  /*imgstyle = {};
 
-  ngOnInit(): void {
+  constructor(private change: NavbarComponent) { }
+
+  sumit(){
+    this.imgstyle = this.change.cambio;
   }
-
+*/
 }
