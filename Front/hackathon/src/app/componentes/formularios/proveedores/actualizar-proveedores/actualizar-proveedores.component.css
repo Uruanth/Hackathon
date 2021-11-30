@@ -5,6 +5,16 @@
   
 }
 
+.btn{
+  background-color: rgb(192, 178, 131);
+  color: black;
+}
+
+.btn-2{
+  background-color: rgb(55, 55, 55);
+  color: white;
+}
+
 h1 {text-align: center}
 
 @media (max-width: 700px) {

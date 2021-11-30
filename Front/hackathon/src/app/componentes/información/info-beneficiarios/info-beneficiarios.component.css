@@ -4,17 +4,17 @@ img {
     height: 200px;
 }
 
-
 iframe {
-    width: 400px;
+    width: 200px;
     height: 400px;
     padding: 50px;
 }
 
-.centro{
+.cuerpo {
     text-align: justify;
-    max-width: 350px;
-}
+    width: 400px;
+    height: 400px;
+  }
 
 @media (max-width:1100px){
     iframe{

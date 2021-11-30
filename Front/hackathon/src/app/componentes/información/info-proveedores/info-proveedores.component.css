@@ -6,11 +6,11 @@ img {
 
 .cuerpo {
   text-align: justify;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 iframe {
-  width: 400px;
+  width: 200px;
   height: 400px;
   padding: 50px;
 }
