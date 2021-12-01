@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-//import { Observable } from "rxjs/Observable";
-import { catchError } from 'rxjs/operators';
-//import { ToastrService } from 'ngx-toastr';
-
+import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { BorrarService } from 'src/app/servicios/borrar.service';
+import { LeerService } from 'src/app/servicios/leer.service';
 
 @Component({
   selector: 'app-borrar-proveedores',
@@ -19,105 +17,84 @@ import { catchError } from 'rxjs/operators';
 
 export class BorrarProveedoresComponent {
 
-  opcionSelect: string = '0';
-  mostrar!: number;
-  opcionSelect2: string = '0';
-  mostrar2!: number; 
-  buscado!:string;
-
   resultados = Array();
-  res: any;
   content: any;
-  urlapi: string = "'http://localhost:8080/api/clientes'";
+  content2: any;
+  urlapi: string = "http://localhost:8080/api/proveedor/";
   codigoRespuesta!:number;
+  res!:any;
   res2:any;
   nombre!: string;
-  horario!: string;
-  desde!: string;
-  hasta!: string;
-  envio!:string;
-  direccion!:string;
+  nombre2!: string;
   correcto!: number;
-  item: string = "619572281e0b36162e21e910";
   
 
-  constructor(private objetoHttp: HttpClient) {}
-
-  capturar() {
-
-      if (this.opcionSelect == "1"){
-        this.mostrar = 1;
-        
-      } else if (this.opcionSelect =="2") {
-        this.mostrar = 2;
-      } else {
-        this.mostrar = 0;
-      }
-      console.log(this.mostrar);
-      console.log(this.opcionSelect);
-  }
-
-  capturar2() {
-
-    if (this.opcionSelect2 == "1"){
-      this.mostrar2 = 1;
-      
-    } else if (this.opcionSelect2 =="2") {
-      this.mostrar2 = 2;
-    } else {
-      this.mostrar2 = 0;
-    }
-    console.log(this.mostrar2);
-    console.log(this.opcionSelect2);
-  }
+  constructor(private toastr: ToastrService, private objetoHttp: HttpClient,
+    private read: LeerService, private clean: BorrarService) {}
 
   buscar(){
+    this.res2 = this.read.codigoRespuesta2(this.urlapi, this.nombre).subscribe(datos => {
+      this.codigoRespuesta = datos.status;
+      console.log(this.codigoRespuesta);
 
+      if (this.codigoRespuesta == 200){
+        this.buscarNombre();
+        this.showNotification('top', 'right',2);
+
+      } else{
+        
+        this.showNotification('top', 'right',1);
+      }      
+      console.log(this.correcto);
+    });
   }
 
-  //FUNCIÓN DE CONTROL DE ERRORES
-  handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Error desconocido!';
-    if (error.error instanceof ErrorEvent) {
-      // Errores del lado del cliente
-      errorMessage =`Error: ${error.error.message}\n ${error.status}`;
-    } else {
-      // Errores del lado del servidor
-      errorMessage =`Codigo de Error: ${error.status} \n Mensaje: ${error.message}`;
-    }
-    //MOSTRANDO UN ERROR EN UNA ALERTA
-    window.alert(errorMessage);
-    return throwError(errorMessage);
+  buscarNombre(){
+    this.res2 = this.read.leer(this.urlapi, this.nombre).subscribe(datos => {
+      this.content = datos;
+      this.nombre2 = this.content[0].nombre;
+      console.log(this.content);
+      console.log(this.correcto);
+    });
   }
 
   /*UPADATE*/
 
-  /*updateDato() {
-    this.objetoHttp.put(`${this.urlapi}/clientes/{id}`,id);
-    this.res.subscribe((datos: any[]) => {
+  deleteDato() {
+    this.res = this.clean.borrar(this.urlapi, this.nombre).subscribe(datos => {
       this.content = datos;
       console.log(this.content);
+      this.comparar();
     });
-  }*/
-    
+    console.log("ok")
+  }
   
   comparar() {
     if (this.codigoRespuesta === 200) {
       this.correcto = 1;
+      this.showNotification('top', 'right',2);
       
     }else {
       this.correcto = 0;
       console.log(this.codigoRespuesta)
-      /*this.showNotification('top', 'right',2);*/
+      this.showNotification('top', 'right',3);
       
     }
   }
-
-  /*
-  showNotification(from, align,type) {
+  
+  showNotification(from:string, align:string, type:number) {
     switch (type) {
       case 1:
-        this.toastr.success('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span><b>Acceso correcto, redirigiendo</b>', '', {
+        this.toastr.error('<span><i class="fas fa-times"></i> </span><b>Proveedor no se encuentra registrado</b>', '', {
+          disableTimeOut: false,
+          enableHtml: true,
+          closeButton: true,
+          toastClass: 'alert alert-danger alert-with-icon',
+          positionClass: 'toast-' + from + '-' + align
+        });
+        break;
+        case 2:
+        this.toastr.success('<span><i class="fas fa-check"></i></span><b>Puede continuar para borrar todos los datos del proveedor</b>', '', {
           disableTimeOut: false,
           closeButton: true,
           enableHtml: true,
@@ -125,8 +102,17 @@ export class BorrarProveedoresComponent {
           positionClass: 'toast-' + from + '-' + align
         });
         break;
-      case 2:
-        this.toastr.error('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span> <b>Nombre de usuario o contraseña incorrecta</b>', '', {
+        case 3:
+        this.toastr.success('<span><i class="fas fa-check"></i> </span><b>Proveedor borrado con exito</b>', '', {
+          disableTimeOut: false,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: 'alert alert-success alert-with-icon',
+          positionClass: 'toast-' + from + '-' + align
+        });
+        break;
+      case 4:
+        this.toastr.error('<span><i class="fas fa-times"></i> </span><b>Error al borrar los datsos del proveedor</b>', '', {
           disableTimeOut: false,
           enableHtml: true,
           closeButton: true,
@@ -137,6 +123,6 @@ export class BorrarProveedoresComponent {
       default:
         break;
     }
-  } */
+  }
 }
 

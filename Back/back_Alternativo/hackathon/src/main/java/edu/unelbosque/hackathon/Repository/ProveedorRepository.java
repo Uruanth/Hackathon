@@ -2,10 +2,9 @@ package edu.unelbosque.hackathon.Repository;
 
 import edu.unelbosque.hackathon.Models.Proveedor;
 import org.springframework.data.mongodb.repository.MongoRepository;
-
 import java.util.List;
 
-public interface PorveedorRepository extends MongoRepository<Proveedor, String> {
+public interface ProveedorRepository extends MongoRepository<Proveedor, String> {
 
     /**
      * @param nombre
@@ -22,5 +21,10 @@ public interface PorveedorRepository extends MongoRepository<Proveedor, String> 
     /**
      * @param codigo
      */
-    void deleteByCodigo(String codigo);
+    List<Proveedor> deleteByCodigo(String codigo);
+    
+    /**
+     * @param nombre
+     */
+    List<Proveedor> deleteByNombre(String nombre);
 }

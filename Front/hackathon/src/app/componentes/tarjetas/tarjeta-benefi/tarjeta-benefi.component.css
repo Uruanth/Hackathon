@@ -9,3 +9,8 @@
 .card:hover {
   box-shadow: 0 0 30px gold;
 }
+
+.img-fluid{
+  width: 400px;
+  height: 400px;
+}

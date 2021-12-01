@@ -36,8 +36,25 @@ public class Proveedor {
         this.abiertoDesde = abiertoDesde;
         this.abiertoHasta = abiertoHasta;
     }
+    
+    /**
+	 * @param nombre
+	 * @param ubicacion
+	 * @param disponibilidadEnvio
+	 * @param abiertoDesde
+	 * @param abiertoHasta
+	 */
+	public Proveedor(String nombre, String ubicacion, String disponibilidadEnvio, String abiertoDesde,
+			String abiertoHasta) {
+		super();
+		this.nombre = nombre;
+		this.ubicacion = ubicacion;
+		this.disponibilidadEnvio = disponibilidadEnvio;
+		this.abiertoDesde = abiertoDesde;
+		this.abiertoHasta = abiertoHasta;
+	}
 
-    @Override
+	@Override
     public String toString() {
         return "Proveedor{" +
                 "id='" + id + '\'' +

@@ -15,15 +15,14 @@ export class AgregarProveedoresComponent {
   opcionSelect2: string = '0';
   mostrar2!: number;
   correcto = -1;
-  urlapi = "http://54.152.79.84:8080/hackathon-1.0.0-api/api/proveedor"
+  urlapi = "http://localhost:8080/api/proveedor/";
   envio!: string;
   codigoRespuesta!: number;
   nombre: string = "";
   desde: string = "";
-  hasta: string ="";
-  mapa: string ="";
-  direccion: string ="";
-  ubicacion!: string;
+  hasta: string = "";
+  mapa: string = "";
+  direccion: string = "";
 
   constructor(private toastr: ToastrService, private router: Router,
     private read: CrearService) { }
@@ -32,14 +31,14 @@ export class AgregarProveedoresComponent {
 
     if (this.opcionSelect == "1") {
       this.mostrar = 1;
-      this.envio= "Si";
+      this.envio = "Si";
 
     } else if (this.opcionSelect == "2") {
       this.mostrar = 2;
       this.envio = "No";
     } else {
       this.mostrar = 0;
-      
+
     }
     console.log("mostrar " + this.mostrar);
     console.log(this.opcionSelect);
@@ -49,12 +48,8 @@ export class AgregarProveedoresComponent {
 
     if (this.opcionSelect2 == "1") {
       this.mostrar2 = 1;
-      this.ubicacion = this.direccion;
-      
-
     } else if (this.opcionSelect2 == "2") {
       this.mostrar2 = 2;
-      this.ubicacion = this.mapa;
     } else {
       this.mostrar2 = 0;
     }
@@ -62,17 +57,17 @@ export class AgregarProveedoresComponent {
     console.log(this.opcionSelect2);
   }
 
-  crearProv(){
+  crearProv() {
     let body = {
       "abiertoDesde": this.desde,
-    "abiertoHasta": this.hasta,
-    "codigo": "string",
-    "disponibilidadEnvio":this.envio,
-    "nombre": this.nombre,
-    "ubicacion": this.ubicacion,
+      "abiertoHasta": this.hasta,
+      "codigo": "string",
+      "disponibilidadEnvio": this.envio,
+      "nombre": this.nombre,
+      "ubicacion": this.direccion,
     }
     console.log(body)
-  
+
     this.read.codigoRespuesta(this.urlapi, body).subscribe(data => {
       this.codigoRespuesta = data.status;
       console.log(data.status)
@@ -85,11 +80,7 @@ export class AgregarProveedoresComponent {
     if (this.codigoRespuesta === 200) {
       this.correcto = 1;
       this.showNotification('top', 'right', 1);
-    } else if (this.codigoRespuesta === 404) {
-      this.correcto = 2;
-      this.showNotification('top', 'right', 2);
-    } else if (this.codigoRespuesta === 500) {
-      this.correcto = 3;
+    } else{
       this.showNotification('top', 'right', 2);
     }
     console.log(this.codigoRespuesta)

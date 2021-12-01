@@ -1,13 +1,17 @@
-img {
+.img {
   border-radius: 50%;
   width: 250px;
   height: 200px;
 }
 
-
+.cuerpo {
+  text-align: justify;
+  width: 400px;
+  height: 400px;
+}
 
 iframe {
-  width: 400px;
+  width: 200px;
   height: 400px;
   padding: 50px;
 }

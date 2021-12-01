@@ -5,10 +5,41 @@
   
 }
 
+.btn{
+  background-color: rgb(192, 178, 131);
+  color: black;
+}
+
+.btn-2{
+  background-color: rgb(55, 55, 55);
+  color: white;
+}
+
+.label{
+  margin: 10px;
+}
+
+.toast-success{background-color:#a3eca3!important;}
+.toast-error{background-color:#f59a95!important;}
+.toast-info{background-color:#2F96B4!important;}
+.toast-warning{background-color:#F89406!important;}
+
 h1 {text-align: center}
 
 @media (max-width: 700px) {
     span{
         display: none;
     }
+
+    iframe{
+      max-width: 400px;
+      max-height: 300px;
+    }
+}
+
+@media (max-width: 520px) {  
+  iframe{
+    max-width: 280px;
+    max-height: 180px;
+  }
 }

@@ -8,9 +8,8 @@
   }
 
   .btn{
-    background-color: darkviolet;
-    opacity: 0.8;
-    color: antiquewhite;
+    background-color: rgb(55, 55, 55);
+    color: white;
   }
   
   h1 {text-align: center}

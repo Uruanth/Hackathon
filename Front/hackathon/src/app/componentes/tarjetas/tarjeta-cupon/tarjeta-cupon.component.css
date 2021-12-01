@@ -1,11 +1,15 @@
 .card {
-    background-color: rgb(153, 152, 150);
-    opacity: 0.8;
-    border: 2px soli;
-    color: white;
-    width: 18rem;
-  }
-  
-  .card:hover {
-    box-shadow: 0 0 30px gold;
-  }
+  background-color: rgb(153, 152, 150);
+  opacity: 0.8;
+  border: 2px soli;
+  color: white;
+  width: 18rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px gold;
+}
+
+.card-img-top {
+  padding: 10px;
+}

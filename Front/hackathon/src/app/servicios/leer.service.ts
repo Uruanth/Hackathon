@@ -11,8 +11,8 @@ export class LeerService {
   content!: any[];
   constructor(private http: HttpClient) { }
 
-  leer(urlapi: string, codigo: string) {
-    return this.http.get(`${urlapi}${codigo}`);
+  leer(urlapi: string, nombre: string) {
+    return this.http.get(`${urlapi}${nombre}`);
 
   }
 
@@ -21,7 +21,12 @@ export class LeerService {
   }
 
   codigoRespuesta(urlapi: string) {
-    return this.http.get(urlapi, { observe: 'response' });
+    return this.http.get(`${urlapi}`, { observe: 'response' });
+
+  }
+
+  codigoRespuesta2(urlapi: string, nombre: string) {
+    return this.http.get(`${urlapi}${nombre}`, { observe: 'response' });
 
   }
 }
