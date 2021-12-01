@@ -36,8 +36,6 @@ export class BuscarComponent implements OnInit {
       if (data.status == 200) {
         this.read.leerTodos(this.urlAlimentos).subscribe(data => {
           this.alimentos = data;
-          console.log("this.alimentos");
-          console.log(this.alimentos);
         });
       }
     });
@@ -46,8 +44,6 @@ export class BuscarComponent implements OnInit {
       if (data.status == 200) {
         this.read.leerTodos(this.urlCupones).subscribe(data => {
           this.cupones = data;
-          console.log("this.cupones");
-          console.log(this.cupones);
 
         });
       }
@@ -57,8 +53,6 @@ export class BuscarComponent implements OnInit {
       if (data.status == 200) {
         this.read.leerTodos(this.urlProveedores).subscribe(data => {
           this.proveedores = data;
-          console.log("this.proveedores");
-          console.log(this.proveedores);
 
         });
       }
@@ -68,20 +62,15 @@ export class BuscarComponent implements OnInit {
       if (data.status == 200) {
         this.read.leerTodos(this.urlTrabajos).subscribe(data => {
           this.trabajos = data;
-          console.log("this.trabajos");
-          console.log(this.trabajos);
 
         });
       }
     });
 
     this.read.codigoRespuesta(this.urlBeneficiarios).subscribe(data => {
-      console.log(data.status)
       if (data.status == 200) {
         this.read.leerTodos(this.urlBeneficiarios).subscribe(data => {
           this.beneficiarios = data;
-          console.log("this.beneficiarios");
-          console.log(this.beneficiarios);
         });
       }
     });
@@ -95,14 +84,14 @@ export class BuscarComponent implements OnInit {
 
 
   buscar(bb: string) {
-    console.log(bb);
+    console.log(this.beneficiarios);
     let a = this.beneficiarios.filter((el:any) => {
       if (bb != "") {
+        console.log(el);
         if (el.nombre.includes(bb)) {
           return el;
         }
       }
-      return "";
     });
     
     if (a.length == 0) {
@@ -115,7 +104,6 @@ export class BuscarComponent implements OnInit {
   }
   
   buscarAlimento(bb: string) {
-    console.log(bb);
     let a = this.alimentos.filter((el:any) => {
       if (bb != "") {
         if (el.nombre.includes(bb)) {
@@ -134,7 +122,6 @@ export class BuscarComponent implements OnInit {
     this.buscarCupon(bb);
   }
   buscarCupon(bb: string) {
-    console.log(bb);
     let a = this.cupones.filter((el:any) => {
       if (bb != "") {
         if (el.categoria.includes(bb)) {
@@ -153,7 +140,6 @@ export class BuscarComponent implements OnInit {
     this.buscarProv(bb);
   }
   buscarProv(bb: string) {
-    console.log(bb);
     let a = this.proveedores.filter((el:any) => {
       if (bb != "") {
         if (el.nombre.includes(bb)) {
@@ -172,7 +158,6 @@ export class BuscarComponent implements OnInit {
     this.buscarTrab(bb);
   }
   buscarTrab(bb: string) {
-    console.log(bb);
     let a = this.trabajos.filter((el:any) => {
       if (bb != "") {
         if (el.categoria.includes(bb)) {
